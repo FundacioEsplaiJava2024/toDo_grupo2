@@ -30,7 +30,6 @@ export const Sidebar = () => {
             {projects.map((project,index) => (
               <ProjectComponent key={project.id} project={project} />
             ))}
-            <ProjectComponent/>
     </section>
     </>
   )

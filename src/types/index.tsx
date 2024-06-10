@@ -8,3 +8,8 @@ export interface Project {
 export interface ProjectFormProps {
     addProject: (projectName: string) => void;
 }
+
+export interface ProjectComponentProps{
+    key: string;
+    project: Project;
+}
