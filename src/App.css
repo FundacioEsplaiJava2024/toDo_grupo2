@@ -1,21 +1,77 @@
-
+*{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 /*SIDEBAR-----------------------------------------*/
 
 
 .Sidebar {
     width: 300px;
-    height: 100%;
-    padding: 30px;
+    height: 100vh;
+    padding: 0;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
     transition-duration: 0.2s;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: blue;
+    background-color:#262F40;
+    align-items: center;
 }
 
-.h1{
-    background-color: aqua;
+h1{
+    color:#F2BC57;
+    margin-top: 6%;
 }
+
+h3{
+    color: #FFFF;
+    margin-top: 10%;
+}
+
+.project_input {
+    outline: none;
+    background: none;
+    border: 1px solid #8758ff;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 150px;
+    color: #fff;
+    margin-left: 6.5%;
+  }
+
+  
+  .project_input::placeholder {
+    color: #ffffff4d;
+  }
+  
+
+  .project_button {
+    background: #8758ff;
+    color: #fff;
+    border: 0.5px solid;
+    border-color: #8758ff;
+    padding: 0.55rem;
+    cursor: pointer;
+  }
+
+  .project_form {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+
+  .Project {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #8758ff;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+
+  }
+  
