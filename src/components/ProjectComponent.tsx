@@ -8,7 +8,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,delet
   return (
     <div className='Project'>
       <p>{project.projectName}</p>
-      <div>
+      <div className='icon_wrapper'>
         <FontAwesomeIcon icon={faPenToSquare}  onClick={() => editproject(project.id)} className='faIcon' />
         <FontAwesomeIcon icon={faTrash} onClick={() => deleteproject(project.id)} className='faIcon'/>
       </div>

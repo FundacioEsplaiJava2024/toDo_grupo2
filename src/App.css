@@ -18,6 +18,8 @@
     overflow-x: hidden;
     background-color:#262F40;
     align-items: center;
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 2%;
 }
 
 h1{
@@ -74,11 +76,21 @@ h3{
     margin-bottom: 1rem;
 
   }
-  
+
+
   .faIcon{
     cursor: pointer;
+    margin-left: 10px;
   }
 
   .pepe {
     margin-inline: 0.5rem;
+  }
+
+  .icon_wrapper{
+    justify-content: flex-end;
+  }
+
+  #project_edit_input{
+    width: 100px;
   }
