@@ -36,10 +36,10 @@ export const Sidebar = () => {
     );
   };
 
-  const editProjectName = (project: Project, id: string) => {
+  const editProjectName = (projectName: string, id: string) => {
     setProjects(
       projects.map((p) =>
-        p.id === id ? { ...p, ...project, isEditing: !p.isEditing } : p
+        p.id === id? {...p, projectName, isEditing:!p.isEditing } : p
       )
     );
   };
