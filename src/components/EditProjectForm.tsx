@@ -5,7 +5,7 @@ import { EditProjectFormProps } from '../types'
 
 export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, project}) => {
   //React.FC especifica el tipado de los atributos que recibe la función 
-    const [value,setValue] = useState("")
+    const [value,setValue] = useState(project.projectName);
 
     const handleSubmit = (e : FormEvent) => {
         e.preventDefault();
