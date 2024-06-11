@@ -8,13 +8,16 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
 
     const handleSubmit = (e : FormEvent) => {
         e.preventDefault();
+        if(value.length < 1 || value.length >12){
+          return;
+        }
         addProject(value);
         setValue("");
     }
 
     return (
       <form action="" className="project_form" onSubmit={handleSubmit}>
-          <input type="text" className='project_input' placeholder="What's the new project?" 
+          <input type="text" className='project_input' placeholder="What's the new project?"  
           onChange= {(e) => setValue(e.target.value)} value={value} />
           <button  type="submit" className="project_button">New Project</button>
           

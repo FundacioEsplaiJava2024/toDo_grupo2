@@ -50,6 +50,7 @@ export const Sidebar = () => {
         <h1>Logo</h1>
         <h3>Proyectos</h3>
         <ProjectForm addProject={addProject} />
+        <div className='pepe'>
         {projects.map((project) => (
           project.isEditing ? (
             <EditProjectForm key={project.id} editProject={editProjectName} project={project} />
@@ -57,6 +58,7 @@ export const Sidebar = () => {
             <ProjectComponent key={project.id} project={project} editproject={editproject} deleteproject={deleteproject} />
           )
         ))}
+        </div>
       </section>
     </>
   )
