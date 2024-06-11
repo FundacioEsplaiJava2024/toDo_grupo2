@@ -12,12 +12,12 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
         setValue("");
     }
 
-  return (
-    <form action="" className="project_form" onSubmit={handleSubmit}>
-        <input type="text" className='project_input' placeholder="What's the new project?" 
-        onChange= {(e) => setValue(e.target.value)} value={value} />
-        <button  type="submit" className="project_button">Add Project</button>
-        
-    </form>
-  )
+    return (
+      <form action="" className="project_form" onSubmit={handleSubmit}>
+          <input type="text" className='project_input' placeholder="What's the new project?" 
+          onChange= {(e) => setValue(e.target.value)} value={value} />
+          <button  type="submit" className="project_button">New Project</button>
+          
+      </form>
+    )
 }
