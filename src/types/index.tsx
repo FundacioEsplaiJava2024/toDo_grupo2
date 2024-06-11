@@ -12,4 +12,5 @@ export interface ProjectFormProps {
 export interface ProjectComponentProps{
     key: string;
     project: Project;
+    deleteproject: (id: string) => void;
 }

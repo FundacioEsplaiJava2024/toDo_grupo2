@@ -21,6 +21,12 @@ export const Sidebar = () => {
     setProjects([...projects, newProject]);
   };
 
+  const deleteproject = (id : string ) => {
+
+    setProjects(projects.filter(project => project.id !== id))
+
+  }
+
   return (
     <>
     <section className="Sidebar">
@@ -28,7 +34,7 @@ export const Sidebar = () => {
             <h3>Proyectos</h3>
             <ProjectForm addProject={addProject}/>
             {projects.map((project,index) => (
-              <ProjectComponent key={project.id} project={project} />
+              <ProjectComponent key={project.id} project={project} deleteproject={deleteproject}/>
             ))}
     </section>
     </>
