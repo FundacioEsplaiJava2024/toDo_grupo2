@@ -1,117 +1,160 @@
-*{
-  margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --sidebar:#474747;
+  --hover-edit: #44acd4;
+  --hover-paper-bin: #FF6961;
+  --projects:#05a379;
+  --project-input: #05a379;
+  --project-input-hover:#02dba1;
 }
+
+
+
+*{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+}
+
+
 
 /*SIDEBAR-----------------------------------------*/
 
 
 .Sidebar {
-  width: 300px;
-  height: 100vh;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  transition-duration: 0.2s;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color:#262F40;
-  border-top-right-radius: 2%;
-  border-bottom-right-radius: 2%;
-  padding-right: 3%;
+    width: 300px;
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition-duration: 0.2s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color:var(--sidebar);
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 2%;
+    padding-right: 3%;
 }
 
 .sidebar_text{
-margin-left: 5%;
+  margin-left: 5%;
 }
 
 h1{
-  color:#F2BC57;
-  margin-top: 6%;
+    color:#F2BC57;
+    margin-top: 6%;
 }
 
 h3{
-  color: #FFFF;
-  margin-top: 10%;
+    color: #FFFF;
+    margin-top: 10%;
+}
+
+.form_style_wrapper{
+  -webkit-box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45); 
+  box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45);
 }
 
 .project_input {
-  outline: none;
-  background: none;
-  border: 0.5px solid #8758ff;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  width: 52%;
-  color: #fff;
-  margin-left: 4.5%;
-  padding-bottom: 4%;
-  padding-top: 3.72%;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  font-size: 16px;
+    outline: none;
+    background-color: #f6f3ee;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 40%;
+    color: #000;
+    margin-left: 4.5%;
+    padding: 0.75rem 1rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+    padding-left: 5%;
 
-}
+  }
 
+  .project_button:hover{
+    background-color: var(--project-input-hover);
+    transition: 500ms;
+  }
 
-.project_input::placeholder {
-  color: #ffffff4d;
-}
+  
+  .project_input::placeholder {
+    margin-left: 5%;
+    color: #afacb7;
+  }
+  
 
+  .project_button {
+    background-color: var(--project-input);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
 
-.project_button {
-  background: #8758ff;
-  color: #fff;
-  border: 0.5px solid;
-  border-color: #8758ff;
-  cursor: pointer;
-  padding: 0.75rem 1rem; 
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-size: 16px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 16px;
 
-}
-
-
-
-
-.Project {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: #8758ff;
-  color: #fff;
-  padding: 0.75rem 2rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  margin-left: 6px;
-  font-size: 16px;
-}
+  }
 
 
-.faIcon{
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.projectWrapper {
-  margin-inline: 0.5rem;
-}
-
-.icon_wrapper{
-  justify-content: flex-end;
-}
-
-#project_edit_input{
-  width: 100px;
-}
 
 
-#trashIcon:hover{
-  color: red;
-  transition: 45ms;
-}
+  .Project {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--projects);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    margin-left: 6px;
+    font-size: 16px;
+    -webkit-box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45); 
+    box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45);
 
-#penIcon:hover{
-  color: blue;
-}
+  }
+
+
+  .faIcon{
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .projectWrapper {
+    margin-inline: 0.5rem;
+  }
+
+  .icon_wrapper{
+    justify-content: flex-end;
+  }
+
+  #project_edit_input{
+    outline: none;
+    background-color: #f6f3ee;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 50%;
+    color: #000;
+    margin-left: 2.1%;
+    padding-bottom: 4%;
+    padding-top: 3.75%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+    padding-left: 5%;
+  }
+
+
+  #trashIcon:hover{
+    color: var(--hover-paper-bin);
+    transition: 45ms;
+  }
+
+  #penIcon:hover{
+    color: var(--hover-edit);
+    transition: 45ms;
+
+  }
