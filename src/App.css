@@ -2,7 +2,7 @@
   --sidebar:#474747;
   --hover-edit: #44acd4;
   --hover-paper-bin: #FF6961;
-  --projects:#90E0E0;
+  --projects:#05a379;
   --project-input: #05a379;
   --project-input-hover:#02dba1;
 }
@@ -12,6 +12,7 @@
 *{
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
 }
 
 
@@ -60,11 +61,10 @@ h3{
     border: none;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    width: 47%;
+    width: 40%;
     color: #000;
     margin-left: 4.5%;
-    padding-bottom: 4%;
-    padding-top: 3.72%;
+    padding: 0.75rem 1rem;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     font-size: 16px;
@@ -89,7 +89,8 @@ h3{
     color: #fff;
     border: none;
     cursor: pointer;
-    padding: 0.75rem 1rem; 
+    padding: 0.75rem 1rem;
+
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     font-size: 16px;
@@ -130,7 +131,20 @@ h3{
   }
 
   #project_edit_input{
-    width: 100px;
+    outline: none;
+    background-color: #f6f3ee;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 63%;
+    color: #000;
+    margin-left: 2.1%;
+    padding-bottom: 4%;
+    padding-top: 3.75%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+    padding-left: 5%;
   }
 
 

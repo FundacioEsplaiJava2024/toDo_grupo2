@@ -14,7 +14,7 @@ export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, pr
     }
 
     return (
-      <form action="" className="project_form" onSubmit={handleSubmit}>
+      <form action="" className="" onSubmit={handleSubmit}>
           <input type="text" className='project_input' id='project_edit_input' placeholder="Update project?" 
           onChange= {(e) => setValue(e.target.value)} value={value} />
           <button  type="submit" className="project_button">Update</button>
