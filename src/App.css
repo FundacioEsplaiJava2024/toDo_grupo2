@@ -3,6 +3,8 @@
   --hover-edit: #44acd4;
   --hover-paper-bin: #FF6961;
   --projects:#90E0E0;
+  --project-input: #05a379;
+  --project-input-hover:#02dba1;
 }
 
 
@@ -70,6 +72,11 @@ h3{
 
   }
 
+  .project_button:hover{
+    background-color: var(--project-input-hover);
+    transition: 500ms;
+  }
+
   
   .project_input::placeholder {
     margin-left: 5%;
@@ -78,7 +85,7 @@ h3{
   
 
   .project_button {
-    background: #8758ff;
+    background-color: var(--project-input);
     color: #fff;
     border: none;
     cursor: pointer;
