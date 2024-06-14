@@ -26,7 +26,7 @@ export const Sidebar = () => {
 
   }
 
-  const editproject = (id: string) => {
+  const startEditingProject = (id: string) => {
     setProjects(
       projects.map((project) =>
         project.id === id ? { ...project, isEditing: true } : project
@@ -55,7 +55,7 @@ export const Sidebar = () => {
           project.isEditing ? (
             <EditProjectForm key={project.id} editProject={editProjectName} project={project} />
           ) : (
-            <ProjectComponent key={project.id} project={project} editproject={editproject} deleteproject={deleteproject} />
+            <ProjectComponent key={project.id} project={project} editproject={startEditingProject} deleteproject={deleteproject} />
           )
         ))}
         </div>
