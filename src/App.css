@@ -1,4 +1,117 @@
-body {
-    justify-content: center
-    ;
+*{
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*SIDEBAR-----------------------------------------*/
+
+
+.Sidebar {
+  width: 300px;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color:#262F40;
+  border-top-right-radius: 2%;
+  border-bottom-right-radius: 2%;
+  padding-right: 3%;
+}
+
+.sidebar_text{
+margin-left: 5%;
+}
+
+h1{
+  color:#F2BC57;
+  margin-top: 6%;
+}
+
+h3{
+  color: #FFFF;
+  margin-top: 10%;
+}
+
+.project_input {
+  outline: none;
+  background: none;
+  border: 0.5px solid #8758ff;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 52%;
+  color: #fff;
+  margin-left: 4.5%;
+  padding-bottom: 4%;
+  padding-top: 3.72%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 16px;
+
+}
+
+
+.project_input::placeholder {
+  color: #ffffff4d;
+}
+
+
+.project_button {
+  background: #8758ff;
+  color: #fff;
+  border: 0.5px solid;
+  border-color: #8758ff;
+  cursor: pointer;
+  padding: 0.75rem 1rem; 
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 16px;
+
+}
+
+
+
+
+.Project {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #8758ff;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  margin-left: 6px;
+  font-size: 16px;
+}
+
+
+.faIcon{
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.projectWrapper {
+  margin-inline: 0.5rem;
+}
+
+.icon_wrapper{
+  justify-content: flex-end;
+}
+
+#project_edit_input{
+  width: 100px;
+}
+
+
+#trashIcon:hover{
+  color: red;
+  transition: 45ms;
+}
+
+#penIcon:hover{
+  color: blue;
 }
