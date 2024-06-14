@@ -5,10 +5,10 @@ import React from 'react'
 import { Project } from '../types'
 
 
-export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject}: ProjectComponentProps) => {
+export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject, onClick}: ProjectComponentProps) => {
   return (
     <div className='Project'>
-      <p>{project.projectName}</p>
+      <p className='projectName' onClick={onClick}>{project.projectName}</p>
       <div className='icon_wrapper'>
         <FontAwesomeIcon icon={faPenToSquare}  onClick={() => editproject(project.id)} className='faIcon' id="penIcon" />
         <FontAwesomeIcon icon={faTrash} onClick={() => deleteproject(project.id)} className='faIcon' id="trashIcon"/>
@@ -22,4 +22,5 @@ export interface ProjectComponentProps {
   project: Project;
   deleteproject: (id: string) => void;
   editproject: (id: string) => void;
+  onClick: () => void;
 }

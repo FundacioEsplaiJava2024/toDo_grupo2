@@ -55,7 +55,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
           project.isEditing ? (
             <EditProjectForm key={project.id} editProject={editProjectName} project={project} />
           ) : (
-            <ProjectComponent key={project.id} project={project} editproject={startEditingProject} deleteproject={deleteproject} />
+            <ProjectComponent key={project.id} project={project} editproject={startEditingProject} deleteproject={deleteproject} onClick={() => onProjectSelect(project)}/>
           )
         ))}
         </div>
