@@ -1,8 +1,10 @@
 :root {
-  --sidebar:#242323;
+  --sidebar:#474747;
   --hover-edit: #44acd4;
   --hover-paper-bin: #FF6961;
-  --projects:#90E0E0;
+  --projects:#05a379;
+  --project-input: #05a379;
+  --project-input-hover:#02dba1;
 }
 
 
@@ -10,6 +12,7 @@
 *{
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
 }
 
 
@@ -48,27 +51,30 @@ h3{
 }
 
 .form_style_wrapper{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45); 
+  box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45);
 }
 
 .project_input {
     outline: none;
     background-color: #f6f3ee;
-    border: 0.5px solid #8758ff;
+    border: none;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    width: 47%;
+    width: 40%;
     color: #000;
     margin-left: 4.5%;
-    padding-bottom: 4%;
-    padding-top: 3.72%;
+    padding: 0.75rem 1rem;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     font-size: 16px;
     padding-left: 5%;
 
+  }
 
-
+  .project_button:hover{
+    background-color: var(--project-input-hover);
+    transition: 500ms;
   }
 
   
@@ -79,12 +85,12 @@ h3{
   
 
   .project_button {
-    background: #8758ff;
+    background-color: var(--project-input);
     color: #fff;
-    border: 0.5px solid;
-    border-color: #8758ff;
+    border: none;
     cursor: pointer;
-    padding: 0.75rem 1rem; 
+    padding: 0.75rem 1rem;
+
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     font-size: 16px;
@@ -100,11 +106,14 @@ h3{
     align-items: flex-start;
     background: var(--projects);
     color: #fff;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
     margin-left: 6px;
     font-size: 16px;
+    -webkit-box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45); 
+    box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45);
+
   }
 
 
@@ -122,7 +131,20 @@ h3{
   }
 
   #project_edit_input{
-    width: 100px;
+    outline: none;
+    background-color: #f6f3ee;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 50%;
+    color: #000;
+    margin-left: 2.1%;
+    padding-bottom: 4%;
+    padding-top: 3.75%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+    padding-left: 5%;
   }
 
 
