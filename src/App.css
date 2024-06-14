@@ -36,7 +36,7 @@ h3{
     outline: none;
     background: none;
     border: 1px solid #8758ff;
-    padding: 0.5rem 1rem;
+    padding: 0.55rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
     width: 130px;
@@ -57,6 +57,9 @@ h3{
     border-color: #8758ff;
     padding: 0.55rem;
     cursor: pointer;
+  }
+
+  .form_styles{
   }
 
   .project_form {
