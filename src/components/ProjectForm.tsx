@@ -18,8 +18,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
 
   return (
     <form action="" className="project_form" onSubmit={handleSubmit}>
-      <div className="form_styles">
-        <input type="text" className='project_input' placeholder="   Create project"
+      <div className="form_styles_wrapper">
+        <input type="text" className='project_input' placeholder="Create project"
           onChange={(e) => setValue(e.target.value)} value={value} />
         <button type="submit" className="project_button">New Project</button>
       </div>
