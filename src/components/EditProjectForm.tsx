@@ -7,11 +7,11 @@ export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, pr
     const [value,setValue] = useState(project.projectName);
 
     const handleSubmit = (e : FormEvent) => {
+      e.preventDefault();
       if (value.length < 1 || value.length > 16) {
         alert("Enter a name between 1 and 16 characters");
         return;
       }
-        e.preventDefault();
         editProject(value, project.id);
         setValue("");
     }
