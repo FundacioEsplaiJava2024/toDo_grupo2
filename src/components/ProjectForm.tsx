@@ -1,6 +1,4 @@
 import React, { FormEvent, useState } from 'react'
-import { ProjectFormProps } from '../types'
-
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
   //React.FC especifica el tipado de los atributos que recibe la función 
@@ -26,3 +24,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
     </form>
   )
 } 
+
+export interface ProjectFormProps {
+  addProject: (projectName: string) => void;
+}

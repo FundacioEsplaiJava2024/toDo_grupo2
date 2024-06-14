@@ -1,6 +1,5 @@
 import React, {FormEvent, useState} from 'react'
-import { EditProjectFormProps } from '../types'
-
+import { Project } from '../types';
 
 
 export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, project}) => {
@@ -21,4 +20,8 @@ export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, pr
           
       </form>
     )
+}
+export interface EditProjectFormProps {
+  editProject: (projectName: string, id:string) => void;
+  project: Project;
 }
