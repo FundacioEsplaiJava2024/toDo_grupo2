@@ -4,8 +4,6 @@ import { ProjectForm } from './ProjectForm'
 import { ProjectComponent } from './ProjectComponent.tsx';
 import { v4 as uuidv4 } from "uuid";
 
-uuidv4();
-
 
 export const Sidebar = () => {
 
@@ -33,7 +31,7 @@ export const Sidebar = () => {
       <ProjectForm addProject={addProject} />
       <div className='projectWrapper'>
       {projects.map((project) => (
-          <ProjectComponent key={project.id} project={project} editproject={editproject} deleteproject={deleteproject} />
+          <ProjectComponent key={project.id} project={project} />
       ))}
       </div>
     </section>
