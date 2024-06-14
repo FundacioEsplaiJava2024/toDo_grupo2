@@ -158,3 +158,11 @@ h3{
     transition: 45ms;
 
   }
+
+  .toDoWrapper {
+    position: relative;
+  }
+  .projectName:hover {
+    cursor: pointer;
+    color: #0b6568;
+  }
