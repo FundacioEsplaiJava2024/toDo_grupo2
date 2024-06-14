@@ -29,7 +29,3 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
 export interface ProjectFormProps {
   addProject: (projectName: string) => void;
 }
-
-export interface ProjectFormProps {
-  addProject: (projectName: string) => void;
-}
