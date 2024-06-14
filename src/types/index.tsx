@@ -5,6 +5,4 @@ export interface Project {
   isEditing: boolean;
 }
 
-export interface ProjectFormProps {
-  addProject: (projectName: string) => void;
-}
+
