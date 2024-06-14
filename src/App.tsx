@@ -1,10 +1,9 @@
-import './App.css'
-import { Sidebar } from './components/Sidebar'
-import { Project } from './types';
-import { useState } from 'react';
+import "./App.css";
+import { Sidebar } from "./components/Sidebar";
+import { Project } from "./types";
+import { useState } from "react";
 
 function App() {
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const handleProjectSelect = (project: Project) => {
@@ -13,9 +12,9 @@ function App() {
 
   return (
     <>
-      <Sidebar/>
+      <Sidebar onProjectSelect={handleProjectSelect} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

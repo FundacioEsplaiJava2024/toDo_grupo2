@@ -6,7 +6,7 @@ import { ProjectComponent } from './ProjectComponent.tsx';
 import { EditProjectForm } from './EditProjectForm.tsx';
 
 
-export const Sidebar = () => {
+export const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
 
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -62,4 +62,8 @@ export const Sidebar = () => {
       </section>
     </>
   )
+}
+
+interface SidebarProps {
+  onProjectSelect: (project: Project) => void;
 }
