@@ -47,8 +47,10 @@ export const Sidebar = () => {
   return (
     <>
       <section className="Sidebar">
+        <div className="sidebar_text">
         <h1>Logo</h1>
         <h3>Proyectos</h3>
+        </div>
         <ProjectForm addProject={addProject} />
         <div className='projectWrapper'>
         {projects.map((project) => (

@@ -22,6 +22,10 @@
     padding-right: 3%;
 }
 
+.sidebar_text{
+  margin-left: 5%;
+}
+
 h1{
     color:#F2BC57;
     margin-top: 6%;
@@ -35,13 +39,18 @@ h3{
 .project_input {
     outline: none;
     background: none;
-    border: 1px solid #8758ff;
-    padding: 0.55rem;
+    border: 0.5px solid #8758ff;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    width: 130px;
+    width: 52%;
     color: #fff;
-    margin-left: 5%;
+    margin-left: 4.5%;
+    padding-bottom: 4%;
+    padding-top: 3.72%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+
   }
 
   
@@ -55,17 +64,15 @@ h3{
     color: #fff;
     border: 0.5px solid;
     border-color: #8758ff;
-    padding: 0.55rem;
     cursor: pointer;
+    padding: 0.75rem 1rem; 
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 16px;
+
   }
 
 
-
-  .project_form {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  
 
   .Project {
     display: flex;
@@ -76,7 +83,8 @@ h3{
     padding: 0.75rem 2rem;
     border-radius: 5px;
     margin-bottom: 1rem;
-    margin-left: 5px;
+    margin-left: 6px;
+    font-size: 16px;
   }
 
 
