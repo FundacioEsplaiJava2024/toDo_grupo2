@@ -21,6 +21,13 @@ export const Sidebar = () => {
     setProjects([...projects, newProject]);
   };
 
+  
+  const deleteproject = (id: string) => {
+
+    setProjects(projects.filter(project => project.id !== id))
+
+  }
+
 
 
   return (
