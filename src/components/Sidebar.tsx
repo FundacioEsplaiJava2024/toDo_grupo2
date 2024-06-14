@@ -29,7 +29,7 @@ export const Sidebar = () => {
   const editproject = (id: string) => {
     setProjects(
       projects.map((project) =>
-        project.id === id ? { ...project, isEditing: !project.isEditing } : project
+        project.id === id ? { ...project, isEditing: true } : project
       )
     );
   };
@@ -37,7 +37,7 @@ export const Sidebar = () => {
   const editProjectName = (projectName: string, id: string) => {
     setProjects(
       projects.map((p) =>
-        p.id === id? {...p, projectName, isEditing:!p.isEditing } : p
+        p.id === id? {...p, projectName, isEditing: false } : p
       )
     );
   };
