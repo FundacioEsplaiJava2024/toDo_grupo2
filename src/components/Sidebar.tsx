@@ -50,7 +50,7 @@ export const Sidebar = () => {
         <h1>Logo</h1>
         <h3>Proyectos</h3>
         <ProjectForm addProject={addProject} />
-        <div className='pepe'>
+        <div className='projectWrapper'>
         {projects.map((project) => (
           project.isEditing ? (
             <EditProjectForm key={project.id} editProject={editProjectName} project={project} />
