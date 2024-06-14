@@ -4,6 +4,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Project } from '../types'
 
+
 export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject}) => {
   return (
     <div className='Project'>
