@@ -5,7 +5,7 @@ import React from 'react'
 import { Project } from '../types'
 
 
-export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject}) => {
+export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject}: ProjectComponentProps) => {
   return (
     <div className='Project'>
       <p>{project.projectName}</p>

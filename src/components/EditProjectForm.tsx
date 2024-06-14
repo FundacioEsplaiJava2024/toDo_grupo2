@@ -2,7 +2,7 @@ import React, {FormEvent, useState} from 'react'
 import { Project } from '../types';
 
 
-export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, project}) => {
+export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, project}: EditProjectFormProps) => {
   //React.FC especifica el tipado de los atributos que recibe la función 
     const [value,setValue] = useState(project.projectName);
 
