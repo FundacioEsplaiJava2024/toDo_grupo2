@@ -194,4 +194,9 @@ h2{
 
 li{
   margin-bottom: 1rem;
+  border: 1px solid black var(--projects);
+  padding: 3%;
+  border-radius: 3px;
+  background-color: var(--projects);
+  color: white;
 }
