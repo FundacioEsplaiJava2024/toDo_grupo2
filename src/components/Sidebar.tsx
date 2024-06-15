@@ -4,7 +4,7 @@ import { Project } from '../types/index.tsx'
 import { v4 as uuidv4 } from "uuid";
 import { ProjectComponent } from './ProjectComponent.tsx';
 import { EditProjectForm } from './EditProjectForm.tsx';
-import ToDoColumn from './ToDoColumn.tsx';
+
 
 
 export const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
