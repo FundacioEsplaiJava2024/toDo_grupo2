@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { ProjectComponentProps } from '../types'
+import { Project } from '../types'
 import React from 'react'
 
 export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject}) => {
@@ -14,4 +14,12 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,delet
       </div>
     </div>
   )
+}
+
+export interface ProjectComponentProps{
+  key: string;
+  project: Project;
+
+  deleteproject: (id: string) => void;
+  editproject: (id: string) => void;
 }

@@ -3,21 +3,17 @@ export interface Project {
     projectName: string;
     completed: boolean;
     isEditing: boolean;
+    assignedTasks: Array<ToDoTask>;
   }
 
-export interface ProjectFormProps {
-    addProject: (projectName: string) => void;
-}
+  export interface ToDoTask{
+    id:string;
+    taskName:string;
+    completed:boolean;
+    isEditing: boolean;
+  }
 
-export interface EditProjectFormProps {
-    editProject: (projectName: string, id:string) => void;
-    project: Project;
-}
 
-export interface ProjectComponentProps{
-    key: string;
-    project: Project;
 
-    deleteproject: (id: string) => void;
-    editproject: (id: string) => void;
-}
+
+

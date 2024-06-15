@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import { ProjectFormProps } from '../types'
+import { Project} from '../types'
 
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
@@ -25,4 +25,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ addProject }) => {
       </div>
     </form>
   )
+}
+
+export interface ProjectFormProps {
+  addProject: (projectName: string) => void;
 }
