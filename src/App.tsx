@@ -6,12 +6,8 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const handleProjectSelect = (project: Project) => {
-    setSelectedProject(project);
-  };
-
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
 
   const addProject = (projectName: string) => {
@@ -27,7 +23,10 @@ function App() {
   };
 
   const deleteproject = (id: string) => {
-    setProjects(projects.filter((project) => project.id !== id));
+    setProjects(projects.filter(project => project.id !== id));
+    if (selectedProjectId === id) {
+      setSelectedProjectId(null);
+    }
   };
 
   const startEditingProject = (id: string) => {
@@ -73,8 +72,12 @@ function App() {
           : p
       )
     );
-    console.log(projects)
   };
+
+  const handleProjectSelect = (project: Project) => {
+    setSelectedProjectId(project.id);
+  };
+  const selectedProject = projects.find(p => p.id === selectedProjectId);
 
   return (
     <>
