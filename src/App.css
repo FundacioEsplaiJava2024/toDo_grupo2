@@ -201,3 +201,11 @@ li{
   background-color: var(--projects);
   color: white;
 }
+
+
+/*Select project*/
+
+.projectName:hover{
+  cursor: pointer;
+  color: #0b6568;
+}
