@@ -73,6 +73,7 @@ function App() {
           : p
       )
     );
+    console.log(projects)
   };
 
   return (
@@ -86,7 +87,7 @@ function App() {
           editProjectName={editProjectName}
           onProjectSelect={handleProjectSelect}
         />{" "}
-        {selectedProject && <ToDoWrapper project={selectedProject} />}
+        {selectedProject && <ToDoWrapper addTask={addTask} project={selectedProject} />}
       </div>
     </>
   );
