@@ -1,7 +1,5 @@
 import { ProjectForm } from "./ProjectForm";
-import { useState } from "react";
-import { Project, ToDoTask } from "../types/index.tsx";
-import { v4 as uuidv4 } from "uuid";
+import { Project } from "../types/index.tsx";
 import { ProjectComponent } from "./ProjectComponent.tsx";
 import { EditProjectForm } from "./EditProjectForm.tsx";
 
