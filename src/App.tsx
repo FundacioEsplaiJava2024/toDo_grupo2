@@ -5,7 +5,6 @@ import { Project, ToDoTask } from "./types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-
 function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -43,6 +42,35 @@ function App() {
     setProjects(
       projects.map((p) =>
         p.id === id ? { ...p, projectName, isEditing: false } : p
+      )
+    );
+  };
+
+  const addTask = (taskName: string, status: string, id: string) => {
+    const newTask: ToDoTask = {
+      id: uuidv4(),
+      taskName,
+      isEditing: false,
+    };
+    setProjects(
+      projects.map((p) =>
+        p.id === id
+          ? {
+              ...p,
+              toDoTasks:
+                status === "toDoTasks"
+                  ? [...p.toDoTasks, newTask]
+                  : p.toDoTasks,
+              doingTasks:
+                status === "doingTasks"
+                  ? [...p.doingTasks, newTask]
+                  : p.doingTasks,
+              doneTasks:
+                status === "doneTasks"
+                  ? [...p.doneTasks, newTask]
+                  : p.doneTasks,
+            }
+          : p
       )
     );
   };
