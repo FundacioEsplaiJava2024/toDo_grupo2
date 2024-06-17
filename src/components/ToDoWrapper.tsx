@@ -6,9 +6,9 @@ export const ToDoWrapper: React.FC<ToDoWrapperProps> = ({ project, addTask }) =>
     <div>
       <h1>Proyecto: </h1>
       <h2>{project.projectName}</h2>
-      <ToDoColumn project={project} addTask={addTask} title='TO DO 🎯' status='toDoTasks' />
-      <ToDoColumn project={project} addTask={addTask} title='DOING 📓' status='doingTasks' />
-      <ToDoColumn project={project} addTask={addTask} title='DONE ✔️' status='doneTasks' />
+      <ToDoColumn key='1' project={project} addTask={addTask} title='TO DO 🎯' status='toDoTasks' />
+      <ToDoColumn key='2' project={project} addTask={addTask} title='DOING 📓' status='doingTasks' />
+      <ToDoColumn key='3' project={project} addTask={addTask} title='DONE ✔️' status='doneTasks' />
     </div>
   );
 };

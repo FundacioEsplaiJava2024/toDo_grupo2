@@ -7,15 +7,22 @@ const ToDoColumn: React.FC<ToDoColumnProps> = ({
   addTask,
   project,
 }) => {
+  let tasks: ToDoTask[] = [];
+  if (status === "toDoTasks") {
+    tasks = project.toDoTasks;
+  } else if (status === "doingTasks") {
+    tasks = project.doingTasks;
+  } else if (status === "doneTasks") {
+    tasks = project.doneTasks;
+  }
 
-  const tasks = project[status as keyof Project] as ToDoTask[];
   return (
     <>
       <div className="to_do_column_container">
         <h2 className="to_do_title">{title}</h2>
         <div className="column_style">
           {tasks.map((task) => (
-            <p>{task.taskName}</p>
+            <p key={task.id}>{task.taskName}</p>
           ))}
           <ToDoForm id={project.id} addTask={addTask} taskStatus={status} />
         </div>
