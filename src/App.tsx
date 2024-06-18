@@ -140,7 +140,7 @@ function App() {
           editProjectName={editProjectName}
           onProjectSelect={handleProjectSelect}
         />{" "}
-        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask} project={selectedProject} />}
+        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask}  changeTaskStatus={changeTaskStatus} project={selectedProject} />}
       </div>
     </>
   );
