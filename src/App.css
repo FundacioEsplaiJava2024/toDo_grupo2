@@ -190,7 +190,7 @@ h3{
     border: 1px;
     border-radius: 5px;
     padding: 3%;
-    height: 50%;
+    height: 40%;
     width: 17rem;
     -webkit-box-shadow: 5px 5px 39px 0px rgba(0,0,0,0.54); 
     box-shadow: 5px 5px 39px 0px rgba(0,0,0,0.54)
@@ -216,5 +216,21 @@ li{
 .projectName:hover{
   cursor: pointer;
   color: #0b6568;
+}
+
+/*TASKS*/
+
+.task{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--projects);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45); 
+  box-shadow: 4px 5px 28px 1px rgba(33,33,33,0.45);
 }
 
