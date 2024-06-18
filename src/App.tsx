@@ -6,7 +6,6 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -15,34 +14,33 @@ function App() {
       id: uuidv4(),
       projectName,
       isEditing: false,
-      toDoTasks: [] as ToDoTask[],
-      doingTasks: [] as ToDoTask[],
-      doneTasks: [] as ToDoTask[],
+      toDoTasks: [],
+      doingTasks: [],
+      doneTasks: [],
     };
-    setProjects([...projects, newProject]);
+    return [...projects, newProject];
   };
 
-  const deleteproject = (id: string) => {
-    setProjects(projects.filter(project => project.id !== id));
+  const deleteProject = (id: string) => {
+    const updatedProjects = projects.filter(project => project.id !== id);
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
     }
+    return updatedProjects;
   };
 
   const startEditingProject = (id: string) => {
-    setProjects(
-      projects.map((project) =>
-        project.id === id ? { ...project, isEditing: true } : project
-      )
+    const updatedProjects = projects.map((project) =>
+      project.id === id ? { ...project, isEditing: true } : project
     );
+    return updatedProjects;
   };
 
   const editProjectName = (projectName: string, id: string) => {
-    setProjects(
-      projects.map((p) =>
-        p.id === id ? { ...p, projectName, isEditing: false } : p
-      )
+    const updatedProjects = projects.map((project) =>
+      project.id === id ? { ...project, projectName, isEditing: false } : project
     );
+    return updatedProjects;
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {
@@ -51,103 +49,83 @@ function App() {
       taskName,
       isEditing: false,
     };
-    setProjects(
-      projects.map((p) =>
-        p.id === projectId
-          ? {
-            ...p,
-            toDoTasks:
-              taskStatus === "toDoTasks"
-                ? [...p.toDoTasks, newTask]
-                : p.toDoTasks,
-            doingTasks:
-              taskStatus === "doingTasks"
-                ? [...p.doingTasks, newTask]
-                : p.doingTasks,
-            doneTasks:
-              taskStatus === "doneTasks"
-                ? [...p.doneTasks, newTask]
-                : p.doneTasks,
-          }
-          : p
-      )
-    );
+    const updatedProjects = projects.map((project) => {
+      if (project.id === projectId) {
+        const tasksArray = project[taskStatus as keyof Project];
+        if (Array.isArray(tasksArray)) {
+          return {
+            ...project,
+            [taskStatus]: [...tasksArray, newTask],
+          };
+        }
+      }
+      return project;
+    });
+    return updatedProjects;
   };
 
   const deleteTask = (taskId: string, projectId: string, taskStatus: string) => {
-    setProjects(
-      projects.map((p) =>
-        p.id === projectId
-          ? {
-            ...p,
-            toDoTasks:
-              taskStatus === "toDoTasks"
-                ? p.toDoTasks.filter(task => task.id !== taskId)
-                : p.toDoTasks,
-            doingTasks:
-              taskStatus === "doingTasks"
-                ? p.doingTasks.filter(task => task.id !== taskId)
-                : p.doingTasks,
-            doneTasks:
-              taskStatus === "doneTasks"
-                ? p.doneTasks.filter(task => task.id !== taskId)
-                : p.doneTasks,
-          }
-          : p
-      )
-    );
-  }
+    const updatedProjects = projects.map((project) => {
+      if (project.id === projectId) {
+        const tasksArray = project[taskStatus as keyof Project];
+        if (Array.isArray(tasksArray)) {
+          return {
+            ...project,
+            [taskStatus]: tasksArray.filter((task: ToDoTask) => task.id !== taskId),
+          };
+        }
+      }
+      return project;
+    });
+    return updatedProjects;
+  };
 
   const changeTaskStatus = (task: ToDoTask, newStatus: string, oldStatus: string, projectId: string) => {
-    setProjects(
-      projects.map((p) =>
-        p.id === projectId
-          ? {
-              ...p,
-              toDoTasks:
-                oldStatus === "toDoTasks"
-                  ? p.toDoTasks.filter(t => t.id !== task.id)
-                  : newStatus === "toDoTasks"
-                  ? [...p.toDoTasks, task]
-                  : p.toDoTasks,
-              doingTasks:
-                oldStatus === "doingTasks"
-                  ? p.doingTasks.filter(t => t.id !== task.id)
-                  : newStatus === "doingTasks"
-                  ? [...p.doingTasks, task]
-                  : p.doingTasks,
-              doneTasks:
-                oldStatus === "doneTasks"
-                  ? p.doneTasks.filter(t => t.id !== task.id)
-                  : newStatus === "doneTasks"
-                  ? [...p.doneTasks, task]
-                  : p.doneTasks,
-            }
-          : p
-      )
-    );
-  }
-  
+    const updatedProjects = projects.map((project) => {
+      if (project.id === projectId) {
+        const oldTasksArray = project[oldStatus as keyof Project];
+        const newTasksArray = project[newStatus as keyof Project];
+        if (Array.isArray(oldTasksArray) && Array.isArray(newTasksArray)) {
+          return {
+            ...project,
+            [oldStatus]: oldTasksArray.filter((t: ToDoTask) => t.id !== task.id),
+            [newStatus]: [...newTasksArray, task],
+          };
+        }
+      }
+      return project;
+    });
+    return updatedProjects;
+  };
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProjectId(project.id);
   };
-  const selectedProject = projects.find(p => p.id === selectedProjectId);
+
+  const selectedProject = projects.find((project) => project.id === selectedProjectId);
 
   return (
-    <>
-      <div className="app_container">
-        <Sidebar
-          projects={projects}
-          addProject={addProject}
-          deleteProject={deleteproject}
-          startEditingProject={startEditingProject}
-          editProjectName={editProjectName}
-          onProjectSelect={handleProjectSelect}
-        />{" "}
-        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} project={selectedProject} />}
-      </div>
-    </>
+    <div className="app_container">
+      <Sidebar
+        projects={projects}
+        addProject={(projectName) => setProjects(addProject(projectName))}
+        deleteProject={(id) => setProjects(deleteProject(id))}
+        startEditingProject={(id) => setProjects(startEditingProject(id))}
+        editProjectName={(projectName, id) => setProjects(editProjectName(projectName, id))}
+        onProjectSelect={handleProjectSelect}
+      />
+      {selectedProject && (
+        <ToDoWrapper
+          addTask={(taskName, taskStatus, projectId) => setProjects(addTask(taskName, taskStatus, projectId))}
+          deleteTask={(taskId, projectId, taskStatus) => setProjects(deleteTask(taskId, projectId, taskStatus))}
+          changeTaskStatus={(task, newStatus, oldStatus, projectId) =>
+            setProjects(changeTaskStatus(task, newStatus, oldStatus, projectId))
+          }
+          project={selectedProject}
+        />
+      )}
+    </div>
   );
 }
+
 export default App;
