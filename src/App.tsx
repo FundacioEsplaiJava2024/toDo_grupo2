@@ -98,9 +98,31 @@ function App() {
     );
   }
 
-  // const changeTaskStatus = (task: ToDoTask, newStatus: string)
+  const changeTaskStatus = (task: ToDoTask, newStatus: string, oldStatus: string, projectId: string) => {
+    deleteTask(task.id, projectId, oldStatus)
+    setProjects(
+      projects.map((p) =>
+        p.id === projectId
+          ? {
+              ...p,
+              toDoTasks:
+              newStatus === "toDoTasks"
+                  ? [...p.toDoTasks, task]
+                  : p.toDoTasks,
+              doingTasks:
+              newStatus === "doingTasks"
+                  ? [...p.doingTasks, task]
+                  : p.doingTasks,
+              doneTasks:
+              newStatus === "doneTasks"
+                  ? [...p.doneTasks, task]
+                  : p.doneTasks,
+            }
+          : p
+      )
+    );
 
-
+  }
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProjectId(project.id);
@@ -118,7 +140,7 @@ function App() {
           editProjectName={editProjectName}
           onProjectSelect={handleProjectSelect}
         />{" "}
-        {selectedProject && <ToDoWrapper addTask={addTask} project={selectedProject} />}
+        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask} project={selectedProject} />}
       </div>
     </>
   );
