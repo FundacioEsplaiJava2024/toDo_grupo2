@@ -1,10 +1,15 @@
 :root {
   --sidebar:#474747;
   --hover-edit: #44acd4;
-  --hover-paper-bin: #FF6961;
+  --hover-paper-bin: grey;
   --projects:#05a379;
   --project-input: #05a379;
   --project-input-hover:#02dba1;
+  --tasks: #a11fbe;
+  --tasks-input: #a11fbe;
+  --tasks-input: #dc44fe;
+  --tasksHover: #3a0a45;
+
 }
 
 
@@ -18,7 +23,7 @@
 .app_container{
   display: flex;
   flex-direction: row;
-  gap: 10%;
+  gap: 2.5%;
 }
 
 .column_container{
@@ -52,8 +57,13 @@
 }
 
 h1{
-    color:#F2BC57;
+    color: white;
     margin-top: 6%;
+}
+
+h2{
+  color: #000000;
+  margin-top: 2%;
 }
 
 h3{
@@ -88,8 +98,8 @@ h3{
 
   }
 
-  .project_button:hover{
-    background-color: var(--project-input-hover);
+  .todo_button:hover{
+    background-color: var(--tasks-input);
     transition: 500ms;
   }
 
@@ -102,6 +112,19 @@ h3{
 
   .project_button {
     background-color: var(--project-input);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 16px;
+
+  }
+
+  .todo_button {
+    background-color: var(--tasks);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -172,7 +195,25 @@ h3{
   #penIcon:hover{
     color: var(--hover-edit);
     transition: 45ms;
+  }
 
+  #faBullseye:hover{
+    color: #eb8c3d;
+    transition: 45ms;
+  }
+
+  #faExclamation:hover{
+    color: red;
+    transition: 45ms;
+  }
+
+  #faCheck:hover{
+    color: #49D907;
+    transition: 45ms;
+  }
+
+  .faIcon {
+    width: 20px;
   }
 
 
@@ -192,8 +233,8 @@ h3{
     padding: 3%;
     height: 40%;
     width: 17rem;
-    -webkit-box-shadow: 5px 5px 39px 0px rgba(0,0,0,0.54); 
-    box-shadow: 5px 5px 39px 0px rgba(0,0,0,0.54)
+    /* -webkit-box-shadow: 5px 5px 39px 0px rgba(0,0,0,0.54); 
+    box-shadow: 5px 5px 39px 0px rgba(0,0,0,0.54) */
   }
 
 .to_do_list{
@@ -218,13 +259,18 @@ li{
   color: #0b6568;
 }
 
+.todoName:hover{
+  cursor: pointer;
+  color: var(--tasksHover);
+}
+
 /*TASKS*/
 
 .task{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background: var(--projects);
+  background: var(--tasks);
   color: #fff;
   padding: 0.75rem 1rem;
   border-radius: 5px;

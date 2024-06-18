@@ -26,20 +26,20 @@ const ToDoColumn: React.FC<ToDoColumnProps> = ({
         <div className="to_do_column_container">
           <h2 className="to_do_title">{title}</h2>
           <div className="column_style">
+          <ToDoForm id={project.id} addTask={addTask} taskStatus={status} />
             {tasks.map((task) => (
               <div className="task">
-                <p key={task.id} className="projectName">{task.taskName}</p>
+                <p key={task.id} className="todoName">{task.taskName}</p>
                 <div className='icon_wrapper'>
-                  <FontAwesomeIcon icon={faBullseye} onClick={() => changeTaskStatus(task,"toDoTasks", status, project.id)} className='faIcon' id="penIcon" />
-                  <FontAwesomeIcon icon={faExclamation} onClick={() => changeTaskStatus(task,"doingTasks", status, project.id)} className='faIcon' id="penIcon" />
-                  <FontAwesomeIcon icon={faCheck} onClick={() => changeTaskStatus(task,"doneTasks", status, project.id)} className='faIcon' id="penIcon" />
+                  <FontAwesomeIcon icon={faBullseye} onClick={() => changeTaskStatus(task,"toDoTasks", status, project.id)} className='faIcon' id="faBullseye" />
+                  <FontAwesomeIcon icon={faExclamation} onClick={() => changeTaskStatus(task,"doingTasks", status, project.id)} className='faIcon' id="faExclamation" />
+                  <FontAwesomeIcon icon={faCheck} onClick={() => changeTaskStatus(task,"doneTasks", status, project.id)} className='faIcon' id="faCheck" />
 
                   <FontAwesomeIcon icon={faTrash} onClick={() => deleteTask(task.id, project.id, status)} className='faIcon' id="trashIcon" />
 
                 </div>
               </div>
             ))}
-            <ToDoForm id={project.id} addTask={addTask} taskStatus={status} />
           </div>
         </div>
       </>
