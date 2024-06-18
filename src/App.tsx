@@ -103,46 +103,31 @@ function App() {
       projects.map((p) =>
         p.id === projectId
           ? {
-            ...p,
-            toDoTasks:
-              oldStatus === "toDoTasks"
-                ? p.toDoTasks.filter(task => task.id !== task.id)
-                : p.toDoTasks,
-            doingTasks:
-              oldStatus === "doingTasks"
-                ? p.doingTasks.filter(task => task.id !== task.id)
-                : p.doingTasks,
-            doneTasks:
-              oldStatus === "doneTasks"
-                ? p.doneTasks.filter(task => task.id !== task.id)
-                : p.doneTasks,
-          }
+              ...p,
+              toDoTasks:
+                oldStatus === "toDoTasks"
+                  ? p.toDoTasks.filter(t => t.id !== task.id)
+                  : newStatus === "toDoTasks"
+                  ? [...p.toDoTasks, task]
+                  : p.toDoTasks,
+              doingTasks:
+                oldStatus === "doingTasks"
+                  ? p.doingTasks.filter(t => t.id !== task.id)
+                  : newStatus === "doingTasks"
+                  ? [...p.doingTasks, task]
+                  : p.doingTasks,
+              doneTasks:
+                oldStatus === "doneTasks"
+                  ? p.doneTasks.filter(t => t.id !== task.id)
+                  : newStatus === "doneTasks"
+                  ? [...p.doneTasks, task]
+                  : p.doneTasks,
+            }
           : p
       )
     );
-    setProjects(
-      projects.map((p) =>
-        p.id === projectId
-          ? {
-            ...p,
-            toDoTasks:
-              newStatus === "toDoTasks"
-                ? [...p.toDoTasks, task]
-                : p.toDoTasks,
-            doingTasks:
-              newStatus === "doingTasks"
-                ? [...p.doingTasks, task]
-                : p.doingTasks,
-            doneTasks:
-              newStatus === "doneTasks"
-                ? [...p.doneTasks, task]
-                : p.doneTasks,
-          }
-          : p
-      )
-    );
-
   }
+  
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProjectId(project.id);
