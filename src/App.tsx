@@ -74,7 +74,29 @@ function App() {
     );
   };
 
-  const deleteTask = () => void
+  const deleteTask = (taskId: string, projectId: string, taskStatus: string) => {
+    setProjects(
+      projects.map((p) =>
+        p.id === projectId
+          ? {
+            ...p,
+            toDoTasks:
+              taskStatus === "toDoTasks"
+                ? p.toDoTasks.filter(task => task.id !== taskId)
+                : p.toDoTasks,
+            doingTasks:
+              taskStatus === "doingTasks"
+                ? p.doingTasks.filter(task => task.id !== taskId)
+                : p.doingTasks,
+            doneTasks:
+              taskStatus === "doneTasks"
+                ? p.doneTasks.filter(task => task.id !== taskId)
+                : p.doneTasks,
+          }
+          : p
+      )
+    );
+  }
 
   // const changeTaskStatus = (task: ToDoTask, newStatus: string)
 
