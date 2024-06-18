@@ -45,7 +45,7 @@ function App() {
     );
   };
 
-  const addTask = (taskName: string, status: string, id: string) => {
+  const addTask = (taskName: string, taskStatus: string, projectId: string) => {
     const newTask: ToDoTask = {
       id: uuidv4(),
       taskName,
@@ -53,19 +53,19 @@ function App() {
     };
     setProjects(
       projects.map((p) =>
-        p.id === id
+        p.id === projectId
           ? {
               ...p,
               toDoTasks:
-                status === "toDoTasks"
+              taskStatus === "toDoTasks"
                   ? [...p.toDoTasks, newTask]
                   : p.toDoTasks,
               doingTasks:
-                status === "doingTasks"
+              taskStatus === "doingTasks"
                   ? [...p.doingTasks, newTask]
                   : p.doingTasks,
               doneTasks:
-                status === "doneTasks"
+              taskStatus === "doneTasks"
                   ? [...p.doneTasks, newTask]
                   : p.doneTasks,
             }
@@ -73,6 +73,8 @@ function App() {
       )
     );
   };
+
+
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProjectId(project.id);
