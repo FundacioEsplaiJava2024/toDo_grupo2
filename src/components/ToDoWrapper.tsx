@@ -8,7 +8,7 @@ export const ToDoWrapper: React.FC<ToDoWrapperProps> = ({ project, addTask, dele
       <h2>{project.projectName}</h2>
       <div className="column_container">
       <ToDoColumn key='1' project={project} addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} title='TO DO 🎯' status='toDoTasks' />
-      <ToDoColumn key='2' project={project} addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} title='DOING 📓' status='doingTasks' />
+      <ToDoColumn key='2' project={project} addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} title='DOING ❗' status='doingTasks' />
       <ToDoColumn key='3' project={project} addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} title='DONE ✔️' status='doneTasks' />
       </div>
     </div>

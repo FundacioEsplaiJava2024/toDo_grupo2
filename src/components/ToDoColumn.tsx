@@ -1,4 +1,4 @@
-import {faTrash,faBullseye } from "@fortawesome/free-solid-svg-icons";
+import {faTrash,faBullseye,faExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Project, ToDoTask } from "../types";
 import { ToDoForm } from "./ToDoForm";
@@ -32,6 +32,7 @@ const ToDoColumn: React.FC<ToDoColumnProps> = ({
                 <div className='icon_wrapper'>
                   <FontAwesomeIcon icon={faBullseye} onClick={() => changeTaskStatus(task,"toDoTasks", status, project.id)} className='faIcon' id="penIcon" />
                   <FontAwesomeIcon icon={faTrash} onClick={() => deleteTask(task.id, project.id, status)} className='faIcon' id="trashIcon" />
+                  <FontAwesomeIcon icon={faPenToSquare} />
                 </div>
               </div>
             ))}
