@@ -5,6 +5,7 @@ const ToDoColumn: React.FC<ToDoColumnProps> = ({
   title,
   status,
   addTask,
+  deleteTask,
   project,
 }) => {
   let tasks: ToDoTask[] = [];
@@ -37,5 +38,6 @@ export interface ToDoColumnProps {
   title: string;
   status: string;
   addTask: (taskName: string, taskStatus: string, id: string) => void;
+  deleteTask: (taskId: string, projectId: string, taskStatus: string) => void;
   project: Project;
 }
