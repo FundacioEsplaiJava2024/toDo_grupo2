@@ -55,20 +55,20 @@ function App() {
       projects.map((p) =>
         p.id === projectId
           ? {
-              ...p,
-              toDoTasks:
+            ...p,
+            toDoTasks:
               taskStatus === "toDoTasks"
-                  ? [...p.toDoTasks, newTask]
-                  : p.toDoTasks,
-              doingTasks:
+                ? [...p.toDoTasks, newTask]
+                : p.toDoTasks,
+            doingTasks:
               taskStatus === "doingTasks"
-                  ? [...p.doingTasks, newTask]
-                  : p.doingTasks,
-              doneTasks:
+                ? [...p.doingTasks, newTask]
+                : p.doingTasks,
+            doneTasks:
               taskStatus === "doneTasks"
-                  ? [...p.doneTasks, newTask]
-                  : p.doneTasks,
-            }
+                ? [...p.doneTasks, newTask]
+                : p.doneTasks,
+          }
           : p
       )
     );
@@ -99,25 +99,45 @@ function App() {
   }
 
   const changeTaskStatus = (task: ToDoTask, newStatus: string, oldStatus: string, projectId: string) => {
-    deleteTask(task.id, projectId, oldStatus)
     setProjects(
       projects.map((p) =>
         p.id === projectId
           ? {
-              ...p,
-              toDoTasks:
+            ...p,
+            toDoTasks:
+              oldStatus === "toDoTasks"
+                ? p.toDoTasks.filter(task => task.id !== task.id)
+                : p.toDoTasks,
+            doingTasks:
+              oldStatus === "doingTasks"
+                ? p.doingTasks.filter(task => task.id !== task.id)
+                : p.doingTasks,
+            doneTasks:
+              oldStatus === "doneTasks"
+                ? p.doneTasks.filter(task => task.id !== task.id)
+                : p.doneTasks,
+          }
+          : p
+      )
+    );
+    setProjects(
+      projects.map((p) =>
+        p.id === projectId
+          ? {
+            ...p,
+            toDoTasks:
               newStatus === "toDoTasks"
-                  ? [...p.toDoTasks, task]
-                  : p.toDoTasks,
-              doingTasks:
+                ? [...p.toDoTasks, task]
+                : p.toDoTasks,
+            doingTasks:
               newStatus === "doingTasks"
-                  ? [...p.doingTasks, task]
-                  : p.doingTasks,
-              doneTasks:
+                ? [...p.doingTasks, task]
+                : p.doingTasks,
+            doneTasks:
               newStatus === "doneTasks"
-                  ? [...p.doneTasks, task]
-                  : p.doneTasks,
-            }
+                ? [...p.doneTasks, task]
+                : p.doneTasks,
+          }
           : p
       )
     );
@@ -140,7 +160,7 @@ function App() {
           editProjectName={editProjectName}
           onProjectSelect={handleProjectSelect}
         />{" "}
-        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask}  changeTaskStatus={changeTaskStatus} project={selectedProject} />}
+        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} project={selectedProject} />}
       </div>
     </>
   );
