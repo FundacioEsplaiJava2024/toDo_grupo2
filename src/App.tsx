@@ -74,6 +74,10 @@ function App() {
     );
   };
 
+  const deleteTask = () => void
+
+  // const changeTaskStatus = (task: ToDoTask, newStatus: string)
+
 
 
   const handleProjectSelect = (project: Project) => {
