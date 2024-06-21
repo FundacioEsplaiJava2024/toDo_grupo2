@@ -32,13 +32,13 @@ const ToDoColumn: React.FC<ToDoColumnProps> = ({
               <div className='icon_wrapper'>
                       {status !== "toDoTasks" && ( 
                         // es como un if(status != "toDoTasks"){} Si el estado es distinto a esta columna, lo carga, si coincide no lo muestra
-                        <FontAwesomeIcon icon={faBullseye} onClick={() => changeTaskStatus(task, "toDoTasks", status, project.id)} className='faIcon' id="penIcon" />
+                        <FontAwesomeIcon icon={faBullseye} onClick={() => changeTaskStatus(task, "toDoTasks", status, project.id)} className='faIcon' id="faBullseye" />
                       )}
                       {status !== "doingTasks" && (
-                        <FontAwesomeIcon icon={faExclamation} onClick={() => changeTaskStatus(task, "doingTasks", status, project.id)} className='faIcon' id="penIcon" />
+                        <FontAwesomeIcon icon={faExclamation} onClick={() => changeTaskStatus(task, "doingTasks", status, project.id)} className='faIcon' id="faExclamation" />
                       )}
                       {status !== "doneTasks" && (
-                        <FontAwesomeIcon icon={faCheck} onClick={() => changeTaskStatus(task, "doneTasks", status, project.id)} className='faIcon' id="penIcon" />
+                        <FontAwesomeIcon icon={faCheck} onClick={() => changeTaskStatus(task, "doneTasks", status, project.id)} className='faIcon' id="faCheck" />
                       )}
                       <FontAwesomeIcon icon={faTrash} onClick={() => deleteTask(task.id, project.id, status)} className='faIcon' id="trashIcon" />
                     </div>
