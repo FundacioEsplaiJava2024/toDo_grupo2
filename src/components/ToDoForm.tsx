@@ -19,7 +19,7 @@ export const ToDoForm: React.FC<ToDoFormProps> = ({ addTask, taskStatus, id }) =
       <div className="form_styles">
         <input type="text" className='project_input' placeholder="   Create task"
           onChange={(e) => setValue(e.target.value)} value={value} />
-        <button type="submit" className="project_button">New task</button>
+        <button type="submit" className="todo_button" >New task</button>
       </div>
     </form>
   )
