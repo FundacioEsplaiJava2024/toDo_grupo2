@@ -4,8 +4,11 @@ import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { TodoistApi } from "@doist/todoist-api-typescript";
 
 function App() {
+  const jiaToken: string = "41cff42f379ec3440dc13b7db401d8edd179a62b077a5a54125ab2e1599dd609";
+  const api = new TodoistApi(jiaToken);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -18,6 +21,12 @@ function App() {
       doingTasks: [],
       doneTasks: [],
     };
+
+    api.getProjects()
+      .then((projects) => console.log(projects))
+      .catch((error) => console.log(error));
+  
+
     return [...projects, newProject];
   };
 
