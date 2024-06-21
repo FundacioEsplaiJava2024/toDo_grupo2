@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# ToDo List Group 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Basic To Do app that also manages projects and task states. Made with React and Typescript. The projects are displayed inside a sidebar where we can edit or delete each project. The tasks are shown as a kanban board in three columns "To Do", "Doing", "Done". You can change the state by clicking in the state icon.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- npm install
+- npm run dev
 
-- Configure the top-level `parserOptions` property like this:
+## Project structure
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+src
+├── components
+│   ├── EditProjectForm.tsx
+│   ├── ProjectComponent.tsx
+│   ├── ProjectForm.tsx
+│   ├── Sidebar.tsx
+│   ├── ToDoColumn.tsx
+│   ├── ToDoForm.tsx
+│   └── ToDoWrapper.tsx
+│
+├── types
+│   └── index.tsx
+│
+├── App.css
+├── App.tsx
+└── main.tsx
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Feature roadmap 🔜
+
+- Adding Todoist Api
+- Integraing dnd kit to be able to drag and drop tasks
+- User managenent
+
