@@ -11,6 +11,7 @@ function App() {
   //const jiaToken: string ="c0525743039cfaa82265235d7043ac1432b71b68";
   //const api = new TodoistApi(jiaToken);
 
+//Para poder gettear los proyectos cuando carga la pagina. Cada vez que se renderiza algo ejecuta las funciones useEffect. Es decir, con cambios de estado, props nuevos, etc.
   useEffect(()=>{
     getProjects();
     console.log("useEfecteadoOk");
