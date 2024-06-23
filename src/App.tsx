@@ -165,9 +165,7 @@ function App() {
         addProject={addProject}
         deleteProject={(id) => setProjects(deleteProject(id))}
         startEditingProject={(id) => setProjects(startEditingProject(id))}
-        editProjectName={(projectName, id) =>
-          setProjects(editProjectName(projectName, id))
-        }
+        editProjectName={(projectName, id) => setProjects(editProjectName(projectName, id))}
         onProjectSelect={handleProjectSelect}
       />
       {selectedProject && (
