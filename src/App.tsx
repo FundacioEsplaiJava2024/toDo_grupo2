@@ -2,7 +2,7 @@ import "./App.css";
 import { Sidebar } from "./components/Sidebar";
 import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
-import {useState } from "react";
+import {useState,useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoistApi } from "@doist/todoist-api-typescript";
 
@@ -11,6 +11,10 @@ function App() {
   //const jiaToken: string ="c0525743039cfaa82265235d7043ac1432b71b68";
   //const api = new TodoistApi(jiaToken);
 
+  useEffect(()=>{
+    getProjects();
+    console.log("useEfecteadoOk");
+  })
 
   const pauToken: string ="d05d7c0c8bd5c1324acff07211be5beecb98610a";
   const api = new TodoistApi(pauToken);
@@ -38,16 +42,18 @@ function App() {
   };
 
   const addProject = async (projectName: string) => {
-    await api.addProject({ name: projectName });
-    const updatedProjects = await getProjects;
-    setProjects(updatedProjects);
+    try {
+      await api.addProject({ name: projectName });
+      const updatedProjects = await getProjects();
+      setProjects(updatedProjects);
+    } catch (error) {
+      console.error(error);
+    }
     // api.getProjects()
     //   .then((projects) => console.log(projects))
     //   .catch((error) => console.log(error));
     //return [...projects, newProject];
   };
-
-
 
   const deleteProject = (id: string) => {
     const updatedProjects = projects.filter((project) => project.id !== id);
@@ -153,7 +159,6 @@ function App() {
 
   return (
     <div className="app_container">
-      <button onClick={() => getProjects()}>click me</button>      
       <Sidebar
         projects={projects}
         addProject={(projectName) => setProjects(addProject(projectName))}
