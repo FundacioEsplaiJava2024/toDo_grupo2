@@ -189,7 +189,5 @@ function App() {
 }
 
 export default App;
-function componentDidMount() {
-  throw new Error("Function not implemented.");
-}
+
 
