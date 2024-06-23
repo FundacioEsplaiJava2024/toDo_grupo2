@@ -2,14 +2,18 @@ import "./App.css";
 import { Sidebar } from "./components/Sidebar";
 import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
-import { useState } from "react";
+import {useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoistApi } from "@doist/todoist-api-typescript";
 
 function App() {
-  const jiaToken: string =
-    "c0525743039cfaa82265235d7043ac1432b71b68";
-  const api = new TodoistApi(jiaToken);
+
+  //const jiaToken: string ="c0525743039cfaa82265235d7043ac1432b71b68";
+  //const api = new TodoistApi(jiaToken);
+
+
+  const pauToken: string ="d05d7c0c8bd5c1324acff07211be5beecb98610a";
+  const api = new TodoistApi(pauToken);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null
   );
@@ -33,25 +37,21 @@ function App() {
     return newProjects;
   };
 
-  const addProject = (projectName: string) => {
-    const newProject: Project = {
-      id: uuidv4(),
-      projectName,
-      isEditing: false,
-      toDoTasks: [],
-      doingTasks: [],
-      doneTasks: [],
-    };
-
+  const addProject = async (projectName: string) => {
+    await api.addProject({ name: projectName });
+    const updatedProjects = await getProjects;
+    setProjects(updatedProjects);
     // api.getProjects()
     //   .then((projects) => console.log(projects))
     //   .catch((error) => console.log(error));
-
-    return [...projects, newProject];
+    //return [...projects, newProject];
   };
+
+
 
   const deleteProject = (id: string) => {
     const updatedProjects = projects.filter((project) => project.id !== id);
+    api.deleteProject(id);
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
     }
@@ -146,13 +146,14 @@ function App() {
     setSelectedProjectId(project.id);
   };
 
-  const selectedProject = projects.find(
+  let selectedProject = projects.find(
     (project) => project.id === selectedProjectId
   );
 
+
   return (
     <div className="app_container">
-      <button onClick={getProjects()} >Boton de geteienar projects</button>
+      <button onClick={() => getProjects()}>click me</button>      
       <Sidebar
         projects={projects}
         addProject={(projectName) => setProjects(addProject(projectName))}
@@ -182,3 +183,7 @@ function App() {
 }
 
 export default App;
+function componentDidMount() {
+  throw new Error("Function not implemented.");
+}
+
