@@ -162,7 +162,7 @@ function App() {
     <div className="app_container">
       <Sidebar
         projects={projects}
-        addProject={(projectName) => setProjects(addProject(projectName))}
+        addProject={addProject}
         deleteProject={(id) => setProjects(deleteProject(id))}
         startEditingProject={(id) => setProjects(startEditingProject(id))}
         editProjectName={(projectName, id) =>
