@@ -89,6 +89,7 @@ function App() {
     };
     const updatedProjects = projects.map((project) => {
       if (project.id === projectId) {
+        api.addTask({ content:taskName, projectId: projectId })
         const tasksArray = project[taskStatus as keyof Project];
         if (Array.isArray(tasksArray)) {
           return {
