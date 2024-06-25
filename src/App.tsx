@@ -5,7 +5,7 @@ import { Project, ToDoTask } from "./types";
 import {useState,useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoistApi } from "@doist/todoist-api-typescript";
-import { getApiProjects,deleteApiProject } from "./ApiManager";
+import { getApiProjects,deleteApiProject, addApiTask } from "./ApiManager";
 
 function App() {
 
@@ -80,7 +80,7 @@ function App() {
     };
     const updatedProjects = projects.map((project) => {
       if (project.id === projectId) {
-        api.addTask({ content:taskName, projectId: projectId })
+        addApiTask(taskName,projectId)
         const tasksArray = project[taskStatus as keyof Project];
         if (Array.isArray(tasksArray)) {
           return {

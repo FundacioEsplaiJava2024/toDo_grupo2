@@ -24,3 +24,8 @@ export const getApiProjects = async () => {
     });
     return newProjects;
   };
+
+
+export const addApiTask = (taskName:string, projectId:string) =>{
+  api.addTask({ content:taskName, projectId: projectId })
+}
