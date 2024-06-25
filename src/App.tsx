@@ -5,6 +5,7 @@ import { Project, ToDoTask } from "./types";
 import {useState,useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoistApi } from "@doist/todoist-api-typescript";
+import { getApiProjects,deleteApiProject } from "./ApiManager";
 
 function App() {
 
@@ -26,18 +27,8 @@ function App() {
   
 
   const getProjects = async () => {
-    const apiProjects = await api.getProjects();
-    const newProjects: Project[] = Object.values(apiProjects).map((project) => {
-      return {
-        id: project.id,
-        projectName: project.name,
-        isEditing: false,
-        toDoTasks: [] as ToDoTask[],
-        doingTasks: [] as ToDoTask[],
-        doneTasks: [] as ToDoTask[],
-      };
-    });
-  
+    const newProjects = await getApiProjects();
+    console.log(newProjects)
     setProjects(newProjects); 
     return newProjects;
   };
@@ -57,8 +48,8 @@ function App() {
   };
 
   const deleteProject = (id: string) => {
+    deleteApiProject(id);
     const updatedProjects = projects.filter((project) => project.id !== id);
-    api.deleteProject(id);
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
     }
