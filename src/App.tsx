@@ -80,7 +80,7 @@ function App() {
     };
     const updatedProjects = projects.map((project) => {
       if (project.id === projectId) {
-        addApiTask(taskName,projectId)
+        addApiTask(taskName,projectId,taskStatus)
         const tasksArray = project[taskStatus as keyof Project];
         if (Array.isArray(tasksArray)) {
           return {
