@@ -2,8 +2,7 @@ import { TodoistApi } from "@doist/todoist-api-typescript";
 import { Project, ToDoTask } from "./types";
 
 
-let pauToken: string = 'd05d7c0c1324acff07211be5beecb98610a';
-let api: TodoistApi = new TodoistApi(pauToken);
+const api: TodoistApi = new TodoistApi('d05d7c0c8bd5c1324acff07211be5beecb98610a');
 
 export function deleteApiProject(id: string) {
   api.deleteProject(id);
@@ -23,6 +22,5 @@ export const getApiProjects = async () => {
       };
 
     });
-    console.log('pepe')
     return newProjects;
   };

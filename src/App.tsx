@@ -11,19 +11,19 @@ function App() {
 
   //const jiaToken: string ="c0525743039cfaa82265235d7043ac1432b71b68";
   //const api = new TodoistApi(jiaToken);
+  const [projects, setProjects] = useState<Project[]>([]);
 
 //Para poder gettear los proyectos cuando carga la pagina. Cada vez que se renderiza algo ejecuta las funciones useEffect. Es decir, con cambios de estado, props nuevos, etc.
   useEffect(()=>{
     getProjects();
     console.log("useEfecteadoOk");
-  })
+  }, [projects])
 
   const pauToken: string ="d05d7c0c8bd5c1324acff07211be5beecb98610a";
   const api = new TodoistApi(pauToken);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null
   );
-  const [projects, setProjects] = useState<Project[]>([]);
   
 
   const getProjects = async () => {
