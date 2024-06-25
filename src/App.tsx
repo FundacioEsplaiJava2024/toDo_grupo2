@@ -17,7 +17,7 @@ function App() {
   useEffect(()=>{
     getProjects();
     console.log("useEfecteadoOk");
-  }, [projects])
+  }, [])
 
   const pauToken: string ="d05d7c0c8bd5c1324acff07211be5beecb98610a";
   const api = new TodoistApi(pauToken);
