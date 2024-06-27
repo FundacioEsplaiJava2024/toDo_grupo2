@@ -138,6 +138,7 @@ function App() {
           : p
       )
     );
+    changeApiStatus(task.id,newStatus);
   }
   
 

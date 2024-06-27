@@ -83,7 +83,11 @@ export function deleteApiProject(id: string) {
   api.deleteProject(id);
 }
 
-export const addApiTask = ( taskName: string, projectId: string, description: string ) => {
+export const addApiTask = (
+  taskName: string,
+  projectId: string,
+  description: string
+) => {
   api.addTask({
     content: taskName,
     projectId: projectId,
@@ -92,5 +96,9 @@ export const addApiTask = ( taskName: string, projectId: string, description: st
 };
 
 export function deleteApiTask(id: string) {
-    api.deleteTask(id);
-  }
+  api.deleteTask(id);
+}
+
+export const changeApiStatus = (taskId: string, newStatus: string) => {
+  api.updateTask(taskId, { description: newStatus });
+};
