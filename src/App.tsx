@@ -4,7 +4,7 @@ import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { getApiProjects,deleteApiProject, addApiProject,  addApiTask, changeApiStatus, deleteApiTask, updateApiProject } from "./ApiManager";
+import { getApiProjects, deleteApiProject, addApiProject, updateApiProject, addApiTask, changeApiStatus, deleteApiTask } from "./ApiManager";
 
 function App() {
 
@@ -51,6 +51,7 @@ function App() {
         p.id === id ? { ...p, projectName, isEditing: false } : p
       )
     );
+    updateApiProject(id,projectName)
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {

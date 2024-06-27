@@ -72,9 +72,13 @@ const convertTask = (apiTask: ApiTask) => {
 };
 
 export const addApiProject = async (projectName: string) => {
-      await api.addProject({ name: projectName });
-  }
+  await api.addProject({ name: projectName });
+};
+
+export const updateApiProject = (projectId: string, projectName: string) => {
+  api.updateProject(projectId, { name: projectName });
+};
 
 export function deleteApiProject(id: string) {
-    api.deleteProject(id);
-  }
+  api.deleteProject(id);
+}
