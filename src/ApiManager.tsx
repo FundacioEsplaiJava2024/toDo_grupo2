@@ -93,3 +93,8 @@ export const changeApiStatus = (taskId:string,newStatus:string,) => {
   api.updateTask(taskId, { description: newStatus});
 
 }
+
+
+export const updateApiProject = (projectId:string, projectName: string) => {
+  api.updateProject(projectId, { name: projectName })
+}
