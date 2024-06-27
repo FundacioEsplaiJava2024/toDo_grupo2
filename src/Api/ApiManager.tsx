@@ -1,5 +1,5 @@
 import { TodoistApi } from "@doist/todoist-api-typescript";
-import { Project, ToDoTask, ApiTask } from "../types";
+import { Project, ToDoTask, ApiTask } from "../types/Index";
 
 const api: TodoistApi = new TodoistApi(
   "d05d7c0c8bd5c1324acff07211be5beecb98610a"

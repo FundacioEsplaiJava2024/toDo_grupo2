@@ -1,7 +1,7 @@
 import "./App.css";
 import { Sidebar } from "./components/Sidebar";
 import { ToDoWrapper } from "./components/ToDoWrapper";
-import { Project, ToDoTask } from "./types";
+import { Project, ToDoTask } from "./types/Index";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {

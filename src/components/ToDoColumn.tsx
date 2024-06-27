@@ -1,6 +1,6 @@
 import {faTrash,faBullseye,faExclamation,faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Project, ToDoTask } from "../types";
+import { Project, ToDoTask } from "../types/Index";
 import { ToDoForm } from "./ToDoForm";
 
 const ToDoColumn: React.FC<ToDoColumnProps> = ({

@@ -1,5 +1,5 @@
 import React, {FormEvent, useState} from 'react'
-import { Project } from '../types';
+import { Project } from '../types/Index';
 
 
 export const EditProjectForm: React.FC<EditProjectFormProps> = ({editProject, project}: EditProjectFormProps) => {

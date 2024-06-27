@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Project } from '../types'
+import { Project } from '../types/Index'
 
 
 export const ProjectComponent: React.FC<ProjectComponentProps> = ({project,deleteproject,editproject, onClick}: ProjectComponentProps) => {
