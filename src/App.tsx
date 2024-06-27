@@ -4,6 +4,7 @@ import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { getApiProjects,deleteApiProject, addApiTask, changeApiStatus, deleteApiTask, updateApiProject } from "./ApiManager";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
     }
+    deleteApiProject(id);
   };
 
   const startEditingProject = (id: string) => {

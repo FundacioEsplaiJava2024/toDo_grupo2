@@ -70,3 +70,8 @@ const convertTask = (apiTask: ApiTask) => {
   };
   return newTask;
 };
+
+
+export function deleteApiProject(id: string) {
+    api.deleteProject(id);
+  }
