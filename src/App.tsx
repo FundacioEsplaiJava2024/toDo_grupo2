@@ -4,33 +4,41 @@ import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { getApiProjects, deleteApiProject, addApiProject, updateApiProject, addApiTask, changeApiStatus, deleteApiTask } from "./Api/ApiManager";
+import {
+  getApiProjects,
+  deleteApiProject,
+  addApiProject,
+  updateApiProject,
+  addApiTask,
+  changeApiStatus,
+  deleteApiTask,
+} from "./Api/ApiManager";
 
 function App() {
-
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
+    null
+  );
   const [projects, setProjects] = useState<Project[]>([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     getProjects();
-  }, [])
+  }, []);
 
-  
   const getProjects = async () => {
     const newProjects = await getApiProjects();
-    console.log(newProjects)
-    setProjects(newProjects); 
+    console.log(newProjects);
+    setProjects(newProjects);
     return newProjects;
   };
 
   const addProject = async (projectName: string) => {
-      addApiProject(projectName)
-      const updatedProjects = await getProjects();
-      setProjects(updatedProjects);
+    addApiProject(projectName);
+    const updatedProjects = await getProjects();
+    setProjects(updatedProjects);
   };
 
   const deleteproject = (id: string) => {
-    setProjects(projects.filter(project => project.id !== id));
+    setProjects(projects.filter((project) => project.id !== id));
     deleteApiProject(id);
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
@@ -51,7 +59,7 @@ function App() {
         p.id === id ? { ...p, projectName, isEditing: false } : p
       )
     );
-    updateApiProject(id,projectName)
+    updateApiProject(id, projectName);
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {
@@ -60,57 +68,66 @@ function App() {
       taskName,
       isEditing: false,
     };
-    addApiTask(taskName,projectId,taskStatus)
+    addApiTask(taskName, projectId, taskStatus);
     setProjects(
       projects.map((p) =>
         p.id === projectId
           ? {
-            ...p,
-            toDoTasks:
-              taskStatus === "toDoTasks"
-                ? [...p.toDoTasks, newTask]
-                : p.toDoTasks,
-            doingTasks:
-              taskStatus === "doingTasks"
-                ? [...p.doingTasks, newTask]
-                : p.doingTasks,
-            doneTasks:
-              taskStatus === "doneTasks"
-                ? [...p.doneTasks, newTask]
-                : p.doneTasks,
-          }
+              ...p,
+              toDoTasks:
+                taskStatus === "toDoTasks"
+                  ? [...p.toDoTasks, newTask]
+                  : p.toDoTasks,
+              doingTasks:
+                taskStatus === "doingTasks"
+                  ? [...p.doingTasks, newTask]
+                  : p.doingTasks,
+              doneTasks:
+                taskStatus === "doneTasks"
+                  ? [...p.doneTasks, newTask]
+                  : p.doneTasks,
+            }
           : p
       )
     );
-    getProjects()
+    getProjects();
   };
 
-  const deleteTask = (taskId: string, projectId: string, taskStatus: string) => {
+  const deleteTask = (
+    taskId: string,
+    projectId: string,
+    taskStatus: string
+  ) => {
     setProjects(
       projects.map((p) =>
         p.id === projectId
           ? {
-            ...p,
-            toDoTasks:
-              taskStatus === "toDoTasks"
-                ? p.toDoTasks.filter(task => task.id !== taskId)
-                : p.toDoTasks,
-            doingTasks:
-              taskStatus === "doingTasks"
-                ? p.doingTasks.filter(task => task.id !== taskId)
-                : p.doingTasks,
-            doneTasks:
-              taskStatus === "doneTasks"
-                ? p.doneTasks.filter(task => task.id !== taskId)
-                : p.doneTasks,
-          }
+              ...p,
+              toDoTasks:
+                taskStatus === "toDoTasks"
+                  ? p.toDoTasks.filter((task) => task.id !== taskId)
+                  : p.toDoTasks,
+              doingTasks:
+                taskStatus === "doingTasks"
+                  ? p.doingTasks.filter((task) => task.id !== taskId)
+                  : p.doingTasks,
+              doneTasks:
+                taskStatus === "doneTasks"
+                  ? p.doneTasks.filter((task) => task.id !== taskId)
+                  : p.doneTasks,
+            }
           : p
       )
     );
     deleteApiTask(taskId);
-  }
+  };
 
-  const changeTaskStatus = (task: ToDoTask, newStatus: string, oldStatus: string, projectId: string) => {
+  const changeTaskStatus = (
+    task: ToDoTask,
+    newStatus: string,
+    oldStatus: string,
+    projectId: string
+  ) => {
     setProjects(
       projects.map((p) =>
         p.id === projectId
@@ -118,19 +135,19 @@ function App() {
               ...p,
               toDoTasks:
                 oldStatus === "toDoTasks"
-                  ? p.toDoTasks.filter(t => t.id !== task.id)
+                  ? p.toDoTasks.filter((t) => t.id !== task.id)
                   : newStatus === "toDoTasks"
                   ? [...p.toDoTasks, task]
                   : p.toDoTasks,
               doingTasks:
                 oldStatus === "doingTasks"
-                  ? p.doingTasks.filter(t => t.id !== task.id)
+                  ? p.doingTasks.filter((t) => t.id !== task.id)
                   : newStatus === "doingTasks"
                   ? [...p.doingTasks, task]
                   : p.doingTasks,
               doneTasks:
                 oldStatus === "doneTasks"
-                  ? p.doneTasks.filter(t => t.id !== task.id)
+                  ? p.doneTasks.filter((t) => t.id !== task.id)
                   : newStatus === "doneTasks"
                   ? [...p.doneTasks, task]
                   : p.doneTasks,
@@ -138,14 +155,13 @@ function App() {
           : p
       )
     );
-    changeApiStatus(task.id,newStatus);
-  }
-  
+    changeApiStatus(task.id, newStatus);
+  };
 
   const handleProjectSelect = (project: Project) => {
     setSelectedProjectId(project.id);
   };
-  const selectedProject = projects.find(p => p.id === selectedProjectId);
+  const selectedProject = projects.find((p) => p.id === selectedProjectId);
 
   return (
     <>
@@ -158,7 +174,14 @@ function App() {
           editProjectName={editProjectName}
           onProjectSelect={handleProjectSelect}
         />{" "}
-        {selectedProject && <ToDoWrapper addTask={addTask} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus} project={selectedProject} />}
+        {selectedProject && (
+          <ToDoWrapper
+            addTask={addTask}
+            deleteTask={deleteTask}
+            changeTaskStatus={changeTaskStatus}
+            project={selectedProject}
+          />
+        )}
       </div>
     </>
   );
