@@ -30,12 +30,14 @@ function App() {
   };
 
   const deleteproject = (id: string) => {
-    setProjects(projects.filter(project => project.id !== id));
+    deleteApiProject(id);
+    const updatedProjects = projects.filter((project) => project.id !== id);
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
     }
-    deleteApiProject(id);
+    return updatedProjects;
   };
+
 
   const startEditingProject = (id: string) => {
     setProjects(
