@@ -17,7 +17,7 @@ export function deleteApiTask(id: string) {
 export const getApiProjects = async (): Promise<Project[]> => {
   const apiProjects = await api.getProjects();
   const newProjects: Project[] = await Promise.all(Object.values(apiProjects).map(async (project) => {
-    const projectTasks: [ApiTask[], ApiTask[], ApiTask[]] = await getProjectTasks(project.id);
+    const projectTasks: [ToDoTask[], ToDoTask[], ToDoTask[]] = await getProjectTasks(project.id);
     return {
       id: project.id,
       projectName: project.name,
