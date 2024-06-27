@@ -24,9 +24,9 @@ src
 │   ├── ToDoForm.tsx
 │   └── ToDoWrapper.tsx
 ├── types
-│   └── index.tsx
+│   └── Index.tsx
 ├── Api
-│ └── ApiManager.tsx
+│   └── ApiManager.tsx
 ├── Sidebar.tsx
 ├── App.css
 ├── App.tsx
