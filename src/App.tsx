@@ -4,7 +4,7 @@ import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { getApiProjects,deleteApiProject, addApiTask, changeApiStatus, deleteApiTask, updateApiProject } from "./ApiManager";
+import { getApiProjects,deleteApiProject, addApiProject,  addApiTask, changeApiStatus, deleteApiTask, updateApiProject } from "./ApiManager";
 
 function App() {
 
@@ -23,16 +23,10 @@ function App() {
     return newProjects;
   };
 
-  const addProject = (projectName: string) => {
-    const newProject: Project = {
-      id: uuidv4(),
-      projectName,
-      isEditing: false,
-      toDoTasks: [] as ToDoTask[],
-      doingTasks: [] as ToDoTask[],
-      doneTasks: [] as ToDoTask[],
-    };
-    setProjects([...projects, newProject]);
+  const addProject = async (projectName: string) => {
+      addApiProject(projectName)
+      const updatedProjects = await getProjects();
+      setProjects(updatedProjects);
   };
 
   const deleteproject = (id: string) => {
