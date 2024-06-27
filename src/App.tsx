@@ -107,6 +107,7 @@ function App() {
           : p
       )
     );
+    deleteApiTask(taskId);
   }
 
   const changeTaskStatus = (task: ToDoTask, newStatus: string, oldStatus: string, projectId: string) => {

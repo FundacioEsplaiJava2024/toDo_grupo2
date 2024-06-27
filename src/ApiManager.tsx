@@ -90,3 +90,7 @@ export const addApiTask = ( taskName: string, projectId: string, description: st
     description: description,
   });
 };
+
+export function deleteApiTask(id: string) {
+    api.deleteTask(id);
+  }
