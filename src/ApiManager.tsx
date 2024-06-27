@@ -9,6 +9,11 @@ export function deleteApiProject(id: string) {
   api.deleteProject(id);
 }
 
+export function deleteApiTask(id: string) {
+  api.deleteTask(id);
+}
+
+
 export const getApiProjects = async (): Promise<Project[]> => {
   const apiProjects = await api.getProjects();
   const newProjects: Project[] = await Promise.all(Object.values(apiProjects).map(async (project) => {
@@ -80,4 +85,11 @@ const convertTask = (apiTask: ApiTask) => {
     isEditing: false,
   };
   return newTask
+}
+
+
+export const changeApiStatus = (taskId:string,newStatus:string,) => {
+
+  api.updateTask(taskId, { description: newStatus});
+
 }
