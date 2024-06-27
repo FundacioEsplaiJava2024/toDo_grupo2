@@ -19,8 +19,6 @@ function App() {
   );
   const [projects, setProjects] = useState<Project[]>([]);
 
-
-
   const getProjects = async () => {
     const newProjects = await getApiProjects();
     console.log(newProjects);
@@ -64,7 +62,7 @@ function App() {
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {
-    const randId = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000
+    const randId = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
     const newTask: ToDoTask = {
       id: randId.toString(),
       taskName,
