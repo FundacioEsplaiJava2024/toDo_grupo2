@@ -12,3 +12,9 @@ export interface ToDoTask {
   taskName: string;
   isEditing: boolean;
 }
+
+export interface ApiTask {
+  id: string;
+  content: string;
+  description: string;
+}
