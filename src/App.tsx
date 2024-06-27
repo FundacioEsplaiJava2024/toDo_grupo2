@@ -2,13 +2,25 @@ import "./App.css";
 import { Sidebar } from "./components/Sidebar";
 import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
 
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(()=>{
+    getProjects();
+  }, [])
+
+  
+  const getProjects = async () => {
+    const newProjects = await getApiProjects();
+    console.log(newProjects)
+    setProjects(newProjects); 
+    return newProjects;
+  };
 
   const addProject = (projectName: string) => {
     const newProject: Project = {
