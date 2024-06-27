@@ -23,11 +23,10 @@ src
 │   ├── ToDoColumn.tsx
 │   ├── ToDoForm.tsx
 │   └── ToDoWrapper.tsx
-│
 ├── types
 │   └── index.tsx
 ├── Api
-│ └── apiManager.tsx
+│ └── ApiManager.tsx
 ├── Sidebar.tsx
 ├── App.css
 ├── App.tsx
