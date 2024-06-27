@@ -60,6 +60,7 @@ function App() {
       taskName,
       isEditing: false,
     };
+    addApiTask(taskName,projectId,taskStatus)
     setProjects(
       projects.map((p) =>
         p.id === projectId
@@ -81,6 +82,7 @@ function App() {
           : p
       )
     );
+    getProjects()
   };
 
   const deleteTask = (taskId: string, projectId: string, taskStatus: string) => {

@@ -82,3 +82,11 @@ export const updateApiProject = (projectId: string, projectName: string) => {
 export function deleteApiProject(id: string) {
   api.deleteProject(id);
 }
+
+export const addApiTask = ( taskName: string, projectId: string, description: string ) => {
+  api.addTask({
+    content: taskName,
+    projectId: projectId,
+    description: description,
+  });
+};
