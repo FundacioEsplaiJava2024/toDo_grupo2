@@ -24,11 +24,12 @@ src
 │
 ├── types
 │   └── index.tsx
-│
+├── Api
+│ └── apiManager.tsx
+├── Sidebar.tsx
 ├── App.css
 ├── App.tsx
 └── main.tsx
-
 
 ## Feature roadmap 🔜
 
