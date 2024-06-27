@@ -41,10 +41,6 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-    // api.getProjects()
-    //   .then((projects) => console.log(projects))
-    //   .catch((error) => console.log(error));
-    //return [...projects, newProject];
   };
 
   const deleteProject = (id: string) => {
