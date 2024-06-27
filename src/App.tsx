@@ -12,7 +12,7 @@ import {
   addApiTask,
   changeApiStatus,
   deleteApiTask,
-} from "./Api/ApiManager";
+} from "./api/ApiManager";
 
 function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
