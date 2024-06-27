@@ -3,7 +3,6 @@ import { Sidebar } from "./components/Sidebar";
 import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types/Index";
 import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import {
   getApiProjects,
   deleteApiProject,
@@ -12,7 +11,7 @@ import {
   addApiTask,
   changeApiStatus,
   deleteApiTask,
-} from "./api/ApiManager";
+} from "./Api/ApiManager";
 
 function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
@@ -65,8 +64,9 @@ function App() {
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {
+    const randId = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000
     const newTask: ToDoTask = {
-      id: uuidv4(),
+      id: randId.toString(),
       taskName,
       isEditing: false,
     };
