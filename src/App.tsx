@@ -20,9 +20,7 @@ function App() {
   );
   const [projects, setProjects] = useState<Project[]>([]);
 
-  useEffect(() => {
-    getProjects();
-  }, []);
+
 
   const getProjects = async () => {
     const newProjects = await getApiProjects();
@@ -31,8 +29,12 @@ function App() {
     return newProjects;
   };
 
+  useEffect(() => {
+    getProjects();
+  }, []);
+
   const addProject = async (projectName: string) => {
-    addApiProject(projectName);
+    await addApiProject(projectName);
     const updatedProjects = await getProjects();
     setProjects(updatedProjects);
   };
