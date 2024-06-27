@@ -4,7 +4,7 @@ import { ToDoWrapper } from "./components/ToDoWrapper";
 import { Project, ToDoTask } from "./types";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { getApiProjects, deleteApiProject, addApiProject, updateApiProject, addApiTask, changeApiStatus, deleteApiTask } from "./ApiManager";
+import { getApiProjects, deleteApiProject, addApiProject, updateApiProject, addApiTask, changeApiStatus, deleteApiTask } from "./Api/ApiManager";
 
 function App() {
 
@@ -30,14 +30,12 @@ function App() {
   };
 
   const deleteproject = (id: string) => {
+    setProjects(projects.filter(project => project.id !== id));
     deleteApiProject(id);
-    const updatedProjects = projects.filter((project) => project.id !== id);
     if (selectedProjectId === id) {
       setSelectedProjectId(null);
     }
-    return updatedProjects;
   };
-
 
   const startEditingProject = (id: string) => {
     setProjects(
