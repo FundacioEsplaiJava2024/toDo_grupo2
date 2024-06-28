@@ -1,5 +1,5 @@
 import { ProjectForm } from "./ProjectForm";
-import { Project } from "../types/index.tsx";
+import { Project } from "../types/Index.tsx";
 import { ProjectComponent } from "./ProjectComponent.tsx";
 import { EditProjectForm } from "./EditProjectForm.tsx";
 

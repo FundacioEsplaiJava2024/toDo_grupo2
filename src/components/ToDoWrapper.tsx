@@ -1,4 +1,4 @@
-import { Project, ToDoTask } from "../types";
+import { Project, ToDoTask } from "../types/Index";
 import ToDoColumn from "./ToDoColumn";
 
 export const ToDoWrapper: React.FC<ToDoWrapperProps> = ({ project, addTask, deleteTask, changeTaskStatus }) => {

@@ -12,6 +12,8 @@ Basic To Do app that also manages projects and task states. Made with React and 
 
 ## Project structure
 
+```
+
 src
 ├── components
 │   ├── EditProjectForm.tsx
@@ -21,15 +23,15 @@ src
 │   ├── ToDoColumn.tsx
 │   ├── ToDoForm.tsx
 │   └── ToDoWrapper.tsx
-│
 ├── types
-│   └── index.tsx
-│
+│   └── Index.tsx
+├── Api
+│   └── ApiManager.tsx
+├── Sidebar.tsx
 ├── App.css
 ├── App.tsx
 └── main.tsx
-
-
+```
 ## Feature roadmap 🔜
 
 - Adding Todoist Api
