@@ -28,7 +28,7 @@ export const getProjectTasks = async (
   
     tasks.forEach((task) => {
       const convertedTask = convertTask(task);
-      switch (task.taskStatus) {  // Asumimos que el estado de la tarea está en la propiedad 'status'
+      switch (task.taskStatus) {  
         case "toDoTasks":
           indexedTasks[0].push(convertedTask);
           break;
