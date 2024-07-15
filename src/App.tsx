@@ -5,13 +5,7 @@ import { Project, ToDoTask } from "./types/Index";
 import { useState, useEffect } from "react";
 import {
   getApiProjects,
-  deleteApiProject,
-  addApiProject,
-  updateApiProject,
-  addApiTask,
-  changeApiStatus,
-  deleteApiTask,
-} from "./Api/ApiManager";
+} from "./Api/ToDoAPIManager";
 
 function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(

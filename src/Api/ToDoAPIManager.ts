@@ -20,37 +20,36 @@ export const getApiProjects = async (): Promise<Project[]> => {
   return newProjects;
 };
 
-
 export const getProjectTasks = async (
-    tasks: ToDoApiTask[]
-  ): Promise<[ToDoTask[], ToDoTask[], ToDoTask[]]> => {
-    const indexedTasks: [ToDoTask[], ToDoTask[], ToDoTask[]] = [[], [], []];
-  
-    tasks.forEach((task) => {
-      const convertedTask = convertTask(task);
-      switch (task.taskStatus) {  
-        case "toDoTasks":
-          indexedTasks[0].push(convertedTask);
-          break;
-        case "doingTasks":
-          indexedTasks[1].push(convertedTask);
-          break;
-        case "doneTasks":
-          indexedTasks[2].push(convertedTask);
-          break;
-        default:
-          break;
-      }
-    });
-  
-    return indexedTasks;
-  };
+  tasks: ToDoApiTask[]
+): Promise<[ToDoTask[], ToDoTask[], ToDoTask[]]> => {
+  const indexedTasks: [ToDoTask[], ToDoTask[], ToDoTask[]] = [[], [], []];
 
-  const convertTask = (apiTask: ToDoApiTask) => {
-    const newTask: ToDoTask = {
-      id: apiTask.id,
-      taskName: apiTask.name,
-      isEditing: false,
-    };
-    return newTask;
+  tasks.forEach((task) => {
+    const convertedTask = convertTask(task);
+    switch (task.taskStatus) {
+      case "toDoTasks":
+        indexedTasks[0].push(convertedTask);
+        break;
+      case "doingTasks":
+        indexedTasks[1].push(convertedTask);
+        break;
+      case "doneTasks":
+        indexedTasks[2].push(convertedTask);
+        break;
+      default:
+        break;
+    }
+  });
+
+  return indexedTasks;
+};
+
+const convertTask = (apiTask: ToDoApiTask) => {
+  const newTask: ToDoTask = {
+    id: apiTask.id,
+    taskName: apiTask.name,
+    isEditing: false,
   };
+  return newTask;
+};
