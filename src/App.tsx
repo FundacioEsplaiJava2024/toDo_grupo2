@@ -8,7 +8,8 @@ import {
   addApiProject,
   deleteApiProject,
   updateApiProject,
-  addApiTask
+  addApiTask,
+  deleteApiTask
 } from "./Api/ToDoAPIManager";
 
 function App() {

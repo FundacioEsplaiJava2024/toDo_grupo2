@@ -77,3 +77,7 @@ export const addApiTask = (
     projectId: projectId,
   });
 };
+
+export function deleteApiTask(id: string) {
+  ToDoAPI.delete(`/tasks/${id}`);
+}
