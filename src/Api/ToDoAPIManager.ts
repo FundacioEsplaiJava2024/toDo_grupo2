@@ -61,3 +61,7 @@ export const addApiProject = async (projectName: string) => {
 export function deleteApiProject(id: string) {
   ToDoAPI.delete(`/projects/${id}`)
 }
+
+export const updateApiProject = (projectId: string, projectName: string) => {
+  ToDoAPI.patch(`/projects/${projectId}`, { name: projectName });
+};
