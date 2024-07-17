@@ -4,12 +4,12 @@ import { Project, ToDoTask, ToDoApiTask } from "../types/Index";
 export const getApiProjects = async (): Promise<Project[]> => {
   const apiProjects = await ToDoAPI.get("/projects");
   const newProjects: Project[] = await Promise.all(
-    Object.values(apiProjects).map(async (project) => {
+    Object.values(apiProjects.data).map(async (project: any) => {
       const projectTasks: [ToDoTask[], ToDoTask[], ToDoTask[]] =
         await getProjectTasks(project.tasks);
       return {
         id: project.id,
-        projectName: project.name,
+        projectName: project.projectName,
         isEditing: false,
         toDoTasks: projectTasks[0],
         doingTasks: projectTasks[1],
@@ -27,7 +27,7 @@ export const getProjectTasks = async (
 
   tasks.forEach((task) => {
     const convertedTask = convertTask(task);
-    switch (task.taskStatus) {
+    switch (task.status) {
       case "toDoTasks":
         indexedTasks[0].push(convertedTask);
         break;

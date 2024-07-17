@@ -15,7 +15,6 @@ function App() {
 
   const getProjects = async () => {
     const newProjects = await getApiProjects();
-    console.log(newProjects);
     setProjects(newProjects);
     return newProjects;
   };

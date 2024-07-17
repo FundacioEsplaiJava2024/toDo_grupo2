@@ -22,5 +22,5 @@ export interface ApiTask {
 export interface ToDoApiTask {
   id: string;
   name: string;
-  taskStatus: string;
+  status: string;
 }
