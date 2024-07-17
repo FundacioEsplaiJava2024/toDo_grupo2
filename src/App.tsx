@@ -5,6 +5,7 @@ import { Project, ToDoTask } from "./types/Index";
 import { useState, useEffect } from "react";
 import {
   getApiProjects,
+  addApiProject,
 } from "./Api/ToDoAPIManager";
 
 function App() {

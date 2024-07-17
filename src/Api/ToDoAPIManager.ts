@@ -53,3 +53,7 @@ const convertTask = (apiTask: ToDoApiTask) => {
   };
   return newTask;
 };
+
+export const addApiProject = async (projectName: string) => {
+  await ToDoAPI.post("/projects", { name: projectName });
+};
