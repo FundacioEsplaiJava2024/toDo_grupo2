@@ -81,3 +81,9 @@ export const addApiTask = (
 export function deleteApiTask(id: string) {
   ToDoAPI.delete(`/tasks/${id}`);
 }
+
+export const changeApiStatus = (taskId: string, newStatus: string) => {
+  ToDoAPI.patch(`/tasks/${taskId}`, {
+    status: newStatus,
+  });
+};
