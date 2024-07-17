@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import {
   getApiProjects,
   addApiProject,
+  deleteApiProject,
 } from "./Api/ToDoAPIManager";
 
 function App() {

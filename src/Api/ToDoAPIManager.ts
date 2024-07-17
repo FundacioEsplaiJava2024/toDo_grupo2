@@ -57,3 +57,7 @@ const convertTask = (apiTask: ToDoApiTask) => {
 export const addApiProject = async (projectName: string) => {
   await ToDoAPI.post("/projects", { name: projectName });
 };
+
+export function deleteApiProject(id: string) {
+  ToDoAPI.delete(`/projects/${id}`)
+}
