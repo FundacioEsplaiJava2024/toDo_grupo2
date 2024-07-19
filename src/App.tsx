@@ -61,13 +61,12 @@ function App() {
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {
-    const randId = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+    const newTaskId = addApiTask(taskName, projectId, taskStatus);
     const newTask: ToDoTask = {
-      id: randId.toString(),
+      id: newTaskId,
       taskName,
       isEditing: false,
     };
-    addApiTask(taskName, projectId, taskStatus);
     setProjects(
       projects.map((p) =>
         p.id === projectId

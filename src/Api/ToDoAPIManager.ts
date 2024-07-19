@@ -71,11 +71,15 @@ export const addApiTask = (
   projectId: string,
   status: string
 ) => {
+  let taskId = "";
   ToDoAPI.post(`/tasks`, {
     name: taskName,
     status: status,
     projectId: projectId,
+  }).then((response) => {
+    taskId = response.data.id
   });
+  return taskId;
 };
 
 export function deleteApiTask(id: string) {
