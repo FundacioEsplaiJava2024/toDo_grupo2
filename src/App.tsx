@@ -88,7 +88,6 @@ function App() {
           : p
       )
     );
-    getProjects();
   };
 
   const deleteTask = (
