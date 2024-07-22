@@ -1,0 +1,9 @@
+.loginC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pepe {
+    color: cadetblue;
+}

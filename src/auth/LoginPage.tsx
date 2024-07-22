@@ -1,7 +1,11 @@
+import "./Auth.css";
+
 function LoginPage() {
-    return (
+  return (
+    <section className="loginC">
       <h1 className="pepe">Login Page Here</h1>
-    );
-  }
-  
-  export default LoginPage;
+    </section>
+  );
+}
+
+export default LoginPage;
