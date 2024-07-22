@@ -1,11 +1,18 @@
 import "./Auth.css";
 
-function LoginPage() {
+const LoginPage = () => {
   return (
-    <section className="loginC">
-      <h1 className="pepe">Login Page Here</h1>
-    </section>
+    <div id="login-form">
+      <h1>Login</h1>
+      <form>
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" name="username" />
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <input type="submit" value="Sign Up" />
+      </form>
+    </div>
   );
-}
+};
 
 export default LoginPage;
