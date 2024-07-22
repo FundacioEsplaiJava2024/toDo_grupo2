@@ -6,12 +6,11 @@ import RegisterPage from "./auth/RegisterPage";
 function Router() {
   const token = localStorage.getItem("accessToken");
 
-  if (!token) {
-    return <LoginPage />;
-  }
+  if (token) return <App />;
+
   return (
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
     </Routes>
   );
