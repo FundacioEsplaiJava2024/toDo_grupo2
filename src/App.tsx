@@ -5,13 +5,13 @@ import { Project, ToDoTask } from "./types/Index";
 import { useState, useEffect } from "react";
 import {
   getApiProjects,
-  deleteApiProject,
   addApiProject,
+  deleteApiProject,
   updateApiProject,
   addApiTask,
-  changeApiStatus,
   deleteApiTask,
-} from "./Api/ApiManager";
+  changeApiStatus
+} from "./Api/ToDoAPIManager";
 
 function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
@@ -21,7 +21,6 @@ function App() {
 
   const getProjects = async () => {
     const newProjects = await getApiProjects();
-    console.log(newProjects);
     setProjects(newProjects);
     return newProjects;
   };
@@ -62,13 +61,12 @@ function App() {
   };
 
   const addTask = (taskName: string, taskStatus: string, projectId: string) => {
-    const randId = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+    const newTaskId = addApiTask(taskName, projectId, taskStatus);
     const newTask: ToDoTask = {
-      id: randId.toString(),
+      id: newTaskId,
       taskName,
       isEditing: false,
     };
-    addApiTask(taskName, projectId, taskStatus);
     setProjects(
       projects.map((p) =>
         p.id === projectId
@@ -90,7 +88,6 @@ function App() {
           : p
       )
     );
-    getProjects();
   };
 
   const deleteTask = (

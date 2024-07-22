@@ -18,3 +18,9 @@ export interface ApiTask {
   content: string;
   description: string;
 }
+
+export interface ToDoApiTask {
+  id: string;
+  name: string;
+  status: string;
+}
