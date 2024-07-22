@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import "./Auth.css";
+import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
@@ -79,6 +80,7 @@ const RegisterPage = () => {
         />
         <input type="submit" value="Register" />
       </form>
+      <Link id="router-link" to={"/"} >Sign In</Link>
     </div>
   );
 };
