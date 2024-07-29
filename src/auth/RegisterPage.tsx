@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import "./Auth.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { apiRegister } from "../Api/AuthApiManager"
 
 
@@ -37,6 +37,7 @@ const RegisterPage = () => {
     setEmail("");
     setPassword("");
     setConfirmPassword("");
+    return <Navigate to="/" replace />;
   };
 
   return (
