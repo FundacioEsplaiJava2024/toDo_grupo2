@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
 
+
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
