@@ -2,7 +2,7 @@ import ToDoAPI from "./ToDoAPI";
 import { Project, ToDoTask, ToDoApiTask } from "../types/Index";
 
 export const getApiProjects = async (): Promise<Project[]> => {
-  const apiProjects = await ToDoAPI.get("/projects");
+  const apiProjects = await ToDoAPI.get("/projects", {headers: {'authorization': localStorage.getItem('accessToken')}});
   const newProjects: Project[] = await Promise.all(
     Object.values(apiProjects.data).map(async (project: any) => {
       const projectTasks: [ToDoTask[], ToDoTask[], ToDoTask[]] =
@@ -55,7 +55,7 @@ const convertTask = (apiTask: ToDoApiTask) => {
 };
 
 export const addApiProject = async (projectName: string) => {
-  await ToDoAPI.post("/projects", { name: projectName });
+  await ToDoAPI.post("/projects", { name: projectName }, {headers: {'authorization': localStorage.getItem('accessToken')}});
 };
 
 export function deleteApiProject(id: string) {
@@ -63,7 +63,7 @@ export function deleteApiProject(id: string) {
 }
 
 export const updateApiProject = (projectId: string, projectName: string) => {
-  ToDoAPI.patch(`/projects/${projectId}`, { name: projectName });
+  ToDoAPI.patch(`/projects/${projectId}`, { name: projectName }, {headers: {'authorization': localStorage.getItem('accessToken')}});
 };
 
 export const addApiTask = (
@@ -76,18 +76,18 @@ export const addApiTask = (
     name: taskName,
     status: status,
     projectId: projectId,
-  }).then((response) => {
+  }, {headers: {'authorization': localStorage.getItem('accessToken')}}).then((response) => {
     taskId = response.data.id
   });
   return taskId;
 };
 
 export function deleteApiTask(id: string) {
-  ToDoAPI.delete(`/tasks/${id}`);
+  ToDoAPI.delete(`/tasks/${id}`, {headers: {'authorization': localStorage.getItem('accessToken')}});
 }
 
 export const changeApiStatus = (taskId: string, newStatus: string) => {
   ToDoAPI.patch(`/tasks/${taskId}`, {
     status: newStatus,
-  });
+  }, {headers: {'authorization': localStorage.getItem('accessToken')}});
 };
