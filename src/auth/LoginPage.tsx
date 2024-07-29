@@ -1,16 +1,17 @@
 import { FormEvent, useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
+import { apiLogin } from "../Api/AuthApiManager"
 
 const LoginPage = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
     const handleSubmit = (e: FormEvent) => {
       e.preventDefault();
   
-      // If all checks pass, you can clear the fields or handle form submission
-      setUsername("");
+      apiLogin(email, password)
+      setEmail("");
       setPassword("");
     };
   
@@ -23,7 +24,7 @@ const LoginPage = () => {
             type="text"
             id="username"
             name="username"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="username"
           />
           <label htmlFor="password">Password:</label>
