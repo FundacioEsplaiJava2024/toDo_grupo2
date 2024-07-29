@@ -1,11 +1,11 @@
 import { FormEvent, useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
+import { apiRegister } from "../Api/AuthApiManager"
 
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   var regularExpression =
@@ -19,7 +19,6 @@ const RegisterPage = () => {
         "Your password must be between 6 and 16 characters. It also must contain a special character and a number."
       );
       setEmail(email);
-      setUsername(username);
       setPassword(password);
       setConfirmPassword(confirmPassword);
       return;
@@ -28,16 +27,14 @@ const RegisterPage = () => {
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
       setEmail(email);
-      setUsername(username);
       setPassword(password);
       setConfirmPassword(confirmPassword);
       return;
       
     }
 
-    // If all checks pass, you can clear the fields or handle form submission
+    apiRegister(email, password)
     setEmail("");
-    setUsername("");
     setPassword("");
     setConfirmPassword("");
   };
@@ -53,14 +50,6 @@ const RegisterPage = () => {
           name="email"
           onChange={(e) => setEmail(e.target.value)}
           placeholder="email"
-        />
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="username"
         />
         <label htmlFor="password">Password:</label>
         <input
