@@ -4,13 +4,17 @@ export const apiRegister = (login: string, password: string) => {
     ToDoAPI.post("/signup", {"login": login, "password": password})
 }
 
-export const apiLogin = async (login: string, password: string): Promise<void> => {
+export const apiLogin = async (login: string, password: string): Promise<string | void> => {
+    let token = "";
     try {
         await ToDoAPI.post("/signin", {"login": login, "password": password})
         .then(response => {
-            localStorage.setItem('accessToken', response.data.accessToken);
-        })
+            token = response.data.accessToken;
+        });
+        return token;
     } catch (error) {
         console.error("Error al iniciar sesión:", error);
+        return "";
     }
 };
+
