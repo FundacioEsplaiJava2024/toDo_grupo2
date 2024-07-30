@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import "./Auth.css";
 import { Link } from "react-router-dom";
 import { apiLogin } from "../Api/AuthApiManager";
@@ -7,18 +7,16 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const token = await apiLogin(email, password);
     if (token == undefined || token == "") {
-      alert("Error al iniciar sesión.");
+      alert("Credenciales incorrectos");
     } else {
       localStorage.setItem("accessToken", token);
     }
 
-    setEmail("");
-    setPassword("");
   };
 
   return (

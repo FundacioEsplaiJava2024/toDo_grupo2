@@ -1,7 +1,9 @@
 import { ProjectForm } from "./ProjectForm";
-import { Project } from "../types/Index.tsx";
+import { Project } from "../types/index.tsx";
 import { ProjectComponent } from "./ProjectComponent.tsx";
 import { EditProjectForm } from "./EditProjectForm.tsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 export const Sidebar: React.FC<SidebarProps> = ({
   projects,
@@ -10,6 +12,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   startEditingProject,
   editProjectName,
   onProjectSelect,
+  handleLogout
 }) => {
   return (
     <>
@@ -37,6 +40,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
             )
           )}
         </div>
+        <div className="Project" id="logout" >
+          <p className="projectName" onClick={handleLogout}>
+            Logout
+          </p>
+          <div className="icon_wrapper">
+            <FontAwesomeIcon icon={faRightFromBracket} className='faIcon' id="faRightFromBracket"/>
+          </div>
+        </div>{" "}
       </section>
     </>
   );
@@ -49,4 +60,5 @@ interface SidebarProps {
   startEditingProject: (id: string) => void;
   editProjectName: (projectName: string, id: string) => void;
   onProjectSelect: (project: Project) => void;
+  handleLogout: () => void;
 }
