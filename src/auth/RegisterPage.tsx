@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import "./Auth.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiRegister } from "../Api/AuthApiManager"
 
 
@@ -8,21 +8,12 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
   // var regularExpression =
   //   /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
-    // if (!regularExpression.test(password)) {
-    //   alert(
-    //     "Your password must be between 6 and 16 characters. It also must contain a special character and a number."
-    //   );
-    //   setEmail(email);
-    //   setPassword(password);
-    //   setConfirmPassword(confirmPassword);
-    //   return;
-    // }
 
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
@@ -32,13 +23,19 @@ const RegisterPage = () => {
       return;
       
     }
-
     apiRegister(email, password)
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    return <Navigate to="/" replace />;
+    navigate("/");
   };
+
+      // if (!regularExpression.test(password)) {
+    //   alert(
+    //     "Your password must be between 6 and 16 characters. It also must contain a special character and a number."
+    //   );
+    //   setEmail(email);
+    //   setPassword(password);
+    //   setConfirmPassword(confirmPassword);
+    //   return;
+    // }
 
   return (
     <div id="login-form">
