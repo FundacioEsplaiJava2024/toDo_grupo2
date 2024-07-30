@@ -15,6 +15,7 @@ const LoginPage = () => {
       alert("Credenciales incorrectos");
     } else {
       localStorage.setItem("accessToken", token);
+      window.location.reload(); 
     }
 
   };
