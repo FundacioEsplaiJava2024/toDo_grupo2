@@ -1,7 +1,7 @@
 import "./App.css";
 import { Sidebar } from "./components/Sidebar";
 import { ToDoWrapper } from "./components/ToDoWrapper";
-import { Project, ToDoTask } from "./types/Index";
+import { Project, ToDoTask } from "./types/index";
 import { useState, useEffect } from "react";
 import {
   getApiProjects,
@@ -160,6 +160,11 @@ function App() {
   };
   const selectedProject = projects.find((p) => p.id === selectedProjectId);
 
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    window.location.href = "/";
+  };
+
   return (
     <>
       <div className="app_container">
@@ -170,6 +175,7 @@ function App() {
           startEditingProject={startEditingProject}
           editProjectName={editProjectName}
           onProjectSelect={handleProjectSelect}
+          handleLogout={handleLogout}
         />{" "}
         {selectedProject && (
           <ToDoWrapper

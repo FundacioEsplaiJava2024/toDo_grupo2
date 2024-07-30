@@ -212,6 +212,10 @@ h3{
     transition: 45ms;
   }
 
+  #logout{
+    background-color: red;
+  }
+
   .faIcon {
     width: 20px;
   }
