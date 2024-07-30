@@ -15,6 +15,16 @@ const RegisterPage = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    // if (!regularExpression.test(password)) {
+    //   alert(
+    //     "Your password must be between 6 and 16 characters. It also must contain a special character and a number."
+    //   );
+    //   setEmail(email);
+    //   setPassword(password);
+    //   setConfirmPassword(confirmPassword);
+    //   return;
+    // }
+
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
       setEmail(email);
@@ -26,16 +36,6 @@ const RegisterPage = () => {
     apiRegister(email, password)
     navigate("/");
   };
-
-      // if (!regularExpression.test(password)) {
-    //   alert(
-    //     "Your password must be between 6 and 16 characters. It also must contain a special character and a number."
-    //   );
-    //   setEmail(email);
-    //   setPassword(password);
-    //   setConfirmPassword(confirmPassword);
-    //   return;
-    // }
 
   return (
     <div id="login-form">
